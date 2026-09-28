@@ -51,7 +51,7 @@ export function Projects() {
           </p>
         </Reveal>
       </div>
-      <div className="grid gap-px bg-forest/20 sm:grid-cols-2">
+      <div className="grid gap-px border-b border-forest/20 bg-forest/20 sm:grid-cols-2">
         {projects.map((project, i) => (
           <Reveal key={project.title} delay={(i % 2) * 110} className="bg-background">
             <article className="group">
