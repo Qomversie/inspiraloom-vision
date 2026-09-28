@@ -20,7 +20,8 @@ const routes = [
 
 export function TwoRoutes() {
  return (
-  <section className="line-top container-site py-20 lg:py-28">
+  <section className="line-top">
+<div className="container-site py-20 lg:py-28">
    <Reveal className="max-w-[720px]">
     <h2 className="text-4xl lg:text-[60px]">Waar kunnen wij u mee helpen?</h2>
     <p className="mt-4 text-bark/75">
@@ -54,6 +55,7 @@ export function TwoRoutes() {
      </Reveal>
     ))}
    </div>
-  </section>
+  </div>
+</section>
  );
 }

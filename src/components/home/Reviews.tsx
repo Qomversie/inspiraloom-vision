@@ -9,9 +9,9 @@ const reviews = [
 export function Reviews() {
   return (
     <section className="bg-sage">
-      <div className="container-site grid-lines py-20 lg:py-28">
+      <div className="container-site py-20 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-[1fr_3fr] lg:gap-10">
-          <Reveal>
+          <Reveal className="lg:border-r lg:border-forest/15 lg:pr-10">
             <h2 className="text-4xl lg:text-[60px]">Wat opdrachtgevers zeggen</h2>
             <p className="mt-10 text-[96px] leading-none text-forest lg:text-[140px]">8,3</p>
             <p className="mt-3 text-bark/75">gemiddeld op Trustoo</p>
