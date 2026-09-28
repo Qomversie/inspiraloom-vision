@@ -1,24 +1,56 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteHeader } from "@/components/home/SiteHeader";
+import { Hero } from "@/components/home/Hero";
+import { Stats } from "@/components/home/Stats";
+import { TwoRoutes } from "@/components/home/TwoRoutes";
+import { Services } from "@/components/home/Services";
+import { Injection } from "@/components/home/Injection";
+import { Certifications } from "@/components/home/Certifications";
+import { Projects } from "@/components/home/Projects";
+import { Werkwijze } from "@/components/home/Werkwijze";
+import { Reviews } from "@/components/home/Reviews";
+import { ContactBlock } from "@/components/home/ContactBlock";
+import { SiteFooter } from "@/components/home/SiteFooter";
+import { FloatingCall } from "@/components/home/FloatingCall";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Hoekstra Houtbehoud — houtworm- en zwambestrijding sinds 1984";
+const description =
+  "Specialist in houtwormbestrijding, zwambestrijding en houtconservering. Van woonhuis tot rijksmonument, in heel Nederland en België.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="bg-background">
+      <SiteHeader />
+      <main>
+        <Hero />
+        <Stats />
+        <TwoRoutes />
+        <Services />
+        <Injection />
+        <Certifications />
+        <Projects />
+        <Werkwijze />
+        <Reviews />
+        <ContactBlock />
+      </main>
+      <SiteFooter />
+      <FloatingCall />
     </div>
   );
 }
