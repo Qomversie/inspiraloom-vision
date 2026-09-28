@@ -35,12 +35,12 @@ export function SiteHeader() {
      </span>
     </a>
 
-    <nav className="hidden items-center gap-6 xl:flex">
+    <nav className="hidden items-center gap-8 xl:flex">
      {menu.map((item) => (
       <a
        key={item.label}
        href={item.href}
-       className="text-[15px] text-bark/80 transition-colors hover:text-forest"
+       className="text-[16px] tracking-[0.04em] text-bark/80 transition-colors hover:text-forest"
       >
        {item.label}
       </a>
