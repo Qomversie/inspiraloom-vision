@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { Hero } from "@/components/home/Hero";
 import { Stats } from "@/components/home/Stats";
+import { Intro } from "@/components/home/Intro";
 import { TwoRoutes } from "@/components/home/TwoRoutes";
 import { Services } from "@/components/home/Services";
 import { Injection } from "@/components/home/Injection";
@@ -40,6 +41,7 @@ function Index() {
       <main>
         <Hero />
         <Stats />
+        <Intro />
         <TwoRoutes />
         <Services />
         <Injection />

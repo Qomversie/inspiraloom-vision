@@ -8,26 +8,29 @@ const reviews = [
 
 export function Reviews() {
   return (
-    <section className="bg-cream">
-      <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-        <Reveal className="max-w-2xl">
-          <h2 className="text-3xl sm:text-4xl">Wat opdrachtgevers zeggen</h2>
-          <p className="mt-4 text-bark/75">Een 8,3 op Trustoo, opgebouwd sinds 1984.</p>
-        </Reveal>
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
-          {reviews.map((review, i) => (
-            <Reveal key={review.name} delay={i * 90}>
-              <article className="flex h-full flex-col rounded-2xl border border-border bg-background p-7">
-                <p className="flex-1 text-bark/80">[Review klant {i + 1}]</p>
-                <div className="mt-6 border-t border-border pt-4">
-                  <p className="font-medium text-forest">{review.name}</p>
-                  <p className="text-sm text-bark/60">
-                    {review.place} — {review.type}
-                  </p>
-                </div>
-              </article>
-            </Reveal>
-          ))}
+    <section className="bg-sage">
+      <div className="container-site grid-lines py-20 lg:py-28">
+        <div className="grid gap-12 lg:grid-cols-[1fr_3fr] lg:gap-10">
+          <Reveal>
+            <h2 className="text-4xl lg:text-[60px]">Wat opdrachtgevers zeggen</h2>
+            <p className="mt-10 text-[96px] leading-none text-forest lg:text-[140px]">8,3</p>
+            <p className="mt-3 text-bark/75">gemiddeld op Trustoo</p>
+          </Reveal>
+          <div className="grid gap-5 md:grid-cols-3">
+            {reviews.map((review, i) => (
+              <Reveal key={review.name} delay={i * 90}>
+                <article className="flex h-full flex-col border border-forest/20 bg-background p-7">
+                  <p className="flex-1 text-bark/80">[Review klant {i + 1}]</p>
+                  <div className="mt-6 border-t border-forest/20 pt-4">
+                    <p className="font-medium text-forest">{review.name}</p>
+                    <p className="text-sm text-bark/60">
+                      {review.place} — {review.type}
+                    </p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
