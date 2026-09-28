@@ -5,6 +5,7 @@ import { Reveal } from "./Reveal";
 export function Injection() {
  return (
   <section id="methode" className="relative overflow-hidden bg-forest-deep">
+   <div className="rings-pattern-light pointer-events-none absolute -left-[300px] top-1/2 size-[560px] -translate-y-1/2 rounded-full" aria-hidden />
    <div className="relative mx-auto grid items-center gap-12 container-site py-20 lg:grid-cols-2 lg:py-28">
     <Reveal>
      <p className="text-sm tracking-wide text-amber uppercase">Uitgelicht</p>
@@ -25,7 +26,6 @@ export function Injection() {
      </div>
     </Reveal>
     <Reveal delay={120} className="relative">
-     <div className="rings-pattern-light pointer-events-none absolute -right-40 -top-40 size-[520px] rounded-full" />
      <img
       src={injectie}
       alt="Vakman brengt met een injectienaald middel in een oude eiken balk"
