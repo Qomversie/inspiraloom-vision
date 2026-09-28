@@ -8,8 +8,9 @@ const reviews = [
 
 export function Reviews() {
   return (
-    <section className="bg-sage">
-      <div className="container-site py-20 lg:py-28">
+    <section className="relative overflow-hidden bg-sage">
+      <div className="rings-watermark pointer-events-none absolute -right-[320px] -top-[420px] hidden size-[820px] rounded-full lg:block" aria-hidden />
+      <div className="relative container-site py-20 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-[1fr_3fr] lg:gap-10">
           <Reveal className="lg:border-r lg:border-forest/15 lg:pr-10">
             <h2 className="text-4xl lg:text-[60px]">Wat opdrachtgevers zeggen</h2>
