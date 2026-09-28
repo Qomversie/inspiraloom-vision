@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Homepage sections live as separate components in `src/components/home/` and are composed in `src/routes/index.tsx`, so the structure maps one-to-one onto WordPress/Elementor sections later.
+- Brand colors, radius (16px) and the Manrope font live as tokens in `src/styles.css`; components never hardcode color values.

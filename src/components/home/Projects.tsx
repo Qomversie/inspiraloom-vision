@@ -1,7 +1,7 @@
 import kerk from "@/assets/hero-kerk.jpg";
 import molen from "@/assets/molen.jpg";
 import stadspoort from "@/assets/stadspoort.jpg";
-import boerderij from "@/assets/boerderij.jpg";
+import kerkAkkrum from "@/assets/kerk-akkrum.jpg";
 import { ArrowButton } from "./ArrowButton";
 import { Reveal } from "./Reveal";
 
@@ -31,12 +31,12 @@ const projects = [
     alt: "Historische stadspoort van baksteen",
   },
   {
-    category: "Boerderij",
+    category: "Kerk",
     place: "Akkrum",
     title: "Kerk Akkrum",
     work: "houtwormbestrijding",
-    image: boerderij,
-    alt: "Monumentale Friese boerderij met rieten dak",
+    image: kerkAkkrum,
+    alt: "Dorpskerk met bakstenen toren tussen de bomen",
   },
 ];
 
