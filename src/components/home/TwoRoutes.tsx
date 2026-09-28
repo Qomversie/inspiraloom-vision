@@ -21,7 +21,7 @@ const routes = [
 export function TwoRoutes() {
  return (
   <section className="line-top relative overflow-hidden">
-   <div className="rings-watermark pointer-events-none absolute -right-[260px] -top-[340px] hidden size-[620px] rounded-full lg:block" aria-hidden />
+   <div className="rings-watermark pointer-events-none absolute -right-[320px] -top-[420px] hidden size-[820px] rounded-full lg:block" aria-hidden />
 <div className="relative container-site py-20 lg:py-28">
    <Reveal className="max-w-[720px]">
     <h2 className="text-4xl lg:text-[60px]">Waar kunnen wij u mee helpen?</h2>
