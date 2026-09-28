@@ -173,3 +173,11 @@
     background-size: 25% 100%;
   }
 }
+
+@utility rings-watermark {
+  background-image: repeating-radial-gradient(
+    circle at center,
+    color-mix(in oklab, var(--color-forest) 8%, transparent) 0 1px,
+    transparent 1px 16px
+  );
+}
