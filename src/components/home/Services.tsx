@@ -54,9 +54,9 @@ const services = [
 export function Services() {
   return (
     <section id="diensten" className="bg-cream">
-      <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+      <div className="mx-auto  wrap py-20 lg:py-28">
         <Reveal className="max-w-2xl">
-          <h2 className="text-3xl sm:text-4xl">Houtaantasters en schimmels</h2>
+          <h2 className="text-4xl lg:text-[60px]">Houtaantasters en schimmels</h2>
           <p className="mt-4 text-bark/75">
             Wij herkennen de aantaster aan het beeld in het hout en kiezen daarna de methode die bij
             uw pand past.
@@ -65,7 +65,7 @@ export function Services() {
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {services.map((service, i) => (
             <Reveal key={service.title} delay={(i % 3) * 90} className={service.span}>
-              <article className="group h-full overflow-hidden rounded-2xl bg-background">
+              <article className="group h-full overflow-hidden rounded-none bg-background">
                 <div className="relative h-56 overflow-hidden">
                   <img
                     src={service.image}

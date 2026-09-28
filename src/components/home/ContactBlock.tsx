@@ -16,9 +16,9 @@ export function ContactBlock() {
         className="absolute inset-0 size-full object-cover"
       />
       <div className="absolute inset-0 bg-forest-deep/70" />
-      <div className="relative mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+      <div className="relative mx-auto  wrap py-20 lg:py-28">
         <Reveal className="max-w-2xl">
-          <div className="rounded-2xl bg-background p-8 lg:p-10">
+          <div className="rounded-none bg-background p-8 lg:p-10">
             <img
               src={portret}
               alt="Jaap en Jurjen Hoekstra"
@@ -27,7 +27,7 @@ export function ContactBlock() {
               height={912}
               className="size-20 rounded-full object-cover"
             />
-            <h2 className="mt-6 text-3xl sm:text-4xl">Wij denken graag met u mee</h2>
+            <h2 className="mt-6 text-4xl lg:text-[60px]">Wij denken graag met u mee</h2>
             <p className="mt-4 text-bark/75">
               Twijfelt u of het hout nog wordt aangetast? Bel ons of stuur een bericht. Jaap of
               Jurjen kijkt met u mee en vertelt u eerlijk wat er nodig is.

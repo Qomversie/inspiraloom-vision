@@ -20,9 +20,9 @@ const routes = [
 
 export function TwoRoutes() {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+    <section className="line-top mx-auto  wrap py-20 lg:py-28">
       <Reveal className="max-w-2xl">
-        <h2 className="text-3xl sm:text-4xl">Waar kunnen wij u mee helpen?</h2>
+        <h2 className="text-4xl lg:text-[60px]">Waar kunnen wij u mee helpen?</h2>
         <p className="mt-4 text-bark/75">
           Twee routes, dezelfde aanpak: eerst kijken, dan adviseren, dan behandelen.
         </p>
@@ -32,7 +32,7 @@ export function TwoRoutes() {
           <Reveal key={route.title} delay={i * 120}>
             <a
               href="#diensten"
-              className="group relative block h-[420px] overflow-hidden rounded-2xl lg:h-[520px]"
+              className="group relative block h-[420px] overflow-hidden rounded-none lg:h-[520px]"
             >
               <img
                 src={route.image}

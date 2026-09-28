@@ -13,12 +13,12 @@ export function Hero() {
         className="absolute inset-0 size-full object-cover"
       />
       <div className="absolute inset-0 bg-forest-deep/55" />
-      <div className="relative mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-end px-5 pb-16 pt-24 lg:px-8 lg:pb-24">
-        <p className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-background/15 px-4 py-1.5 text-sm text-sage backdrop-blur">
+      <div className="relative mx-auto flex min-h-[88vh]  flex-col justify-end wrap pb-16 pt-24 lg:pb-24">
+        <p className="mb-5 inline-flex w-fit items-center gap-2 bg-background/15 px-4 py-1.5 text-sm text-sage backdrop-blur">
           <span className="size-2 rounded-full bg-amber" aria-hidden />
           Familiebedrijf uit Tijnje, sinds 1984
         </p>
-        <h1 className="max-w-3xl text-4xl text-white sm:text-5xl lg:text-7xl">
+        <h1 className="max-w-3xl text-4xl text-white sm:text-5xl lg:text-[88px]">
           Oud hout verdient vakmanschap
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-sage">

@@ -6,7 +6,7 @@ export function Injection() {
   return (
     <section id="methode" className="relative overflow-hidden bg-forest-deep">
       <div className="rings-pattern-light pointer-events-none absolute -left-40 top-1/2 size-[520px] -translate-y-1/2 rounded-full opacity-60" />
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 lg:grid-cols-2 lg:px-8 lg:py-28">
+      <div className="relative mx-auto grid  items-center gap-12 wrap py-20 lg:grid-cols-2 lg:py-28">
         <Reveal>
           <p className="text-sm tracking-wide text-amber uppercase">Uitgelicht</p>
           <h2 className="mt-4 text-3xl text-white sm:text-4xl">De Hoekstra Injectie</h2>
@@ -32,7 +32,7 @@ export function Injection() {
             loading="lazy"
             width={1280}
             height={1280}
-            className="aspect-square w-full rounded-2xl object-cover"
+            className="aspect-square w-full rounded-none object-cover"
           />
         </Reveal>
       </div>

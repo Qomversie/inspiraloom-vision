@@ -12,7 +12,7 @@ const menu = [
 export function SiteFooter() {
   return (
     <footer className="bg-forest-deep text-sage/80">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-3 lg:px-8">
+      <div className="mx-auto grid  gap-10 wrap py-16 lg:grid-cols-3">
         <div>
           <div className="flex items-center gap-3">
             <img
@@ -62,7 +62,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-sage/15">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-6 gap-y-2 px-5 py-6 text-xs lg:px-8">
+        <div className="mx-auto flex  flex-wrap items-center gap-x-6 gap-y-2 wrap py-6 text-xs">
           <span>NVPB</span>
           <span>KPMB IPM Houtbescherming</span>
           <span>VCA</span>

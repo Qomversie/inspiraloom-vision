@@ -28,15 +28,15 @@ const steps = [
 
 export function Werkwijze() {
   return (
-    <section id="werkwijze" className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+    <section id="werkwijze" className="line-top grid-lines mx-auto  wrap py-20 lg:py-28">
       <div className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <Reveal>
-          <div className="rings-pattern-light flex h-full min-h-72 flex-col justify-between rounded-2xl bg-forest-deep p-8">
+          <div className="rings-pattern-light flex h-full min-h-72 flex-col justify-between rounded-none bg-forest-deep p-8">
             <span className="flex size-14 items-center justify-center rounded-full bg-sage text-forest">
               <TreePine className="size-7" aria-hidden />
             </span>
             <div className="mt-10">
-              <h2 className="text-3xl text-white">Onze werkwijze</h2>
+              <h2 className="text-4xl text-white lg:text-[60px]">Onze werkwijze</h2>
               <p className="mt-4 text-sage/85">
                 Vier stappen, geen verrassingen. U weet steeds wat er gebeurt en waarom.
               </p>

@@ -16,7 +16,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-3 lg:px-8">
+      <div className="mx-auto flex  items-center justify-between gap-6 wrap py-3">
         <a href="#top" className="flex items-center gap-3">
           <img
             src={logo.url}
@@ -50,7 +50,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <a
             href="tel:0513529899"
-            className="hidden items-center gap-3 rounded-full bg-primary py-2 pl-5 pr-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-forest-deep sm:inline-flex"
+            className="hidden items-center gap-3 bg-primary py-2 pl-5 pr-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-forest-deep sm:inline-flex"
           >
             Bel 0513 529 899
             <span className="flex size-8 items-center justify-center rounded-full bg-primary-foreground/15">
@@ -78,7 +78,7 @@ export function SiteHeader() {
 
       {open && (
         <nav className="border-t border-border bg-background xl:hidden">
-          <div className="mx-auto flex max-w-7xl flex-col px-5 py-2">
+          <div className="mx-auto flex  flex-col wrap py-2">
             {menu.map((item) => (
               <a
                 key={item.label}

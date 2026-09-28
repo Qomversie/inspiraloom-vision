@@ -27,7 +27,7 @@ export function ArrowButton({
     <a
       href={href}
       className={cn(
-        "group inline-flex items-center gap-3 rounded-full py-2 pl-6 pr-2 text-base font-medium transition-colors",
+        "group inline-flex items-center gap-3 py-2 pl-6 pr-2 text-base font-medium transition-colors",
         variants[variant],
         className,
       )}

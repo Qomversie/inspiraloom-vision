@@ -43,9 +43,9 @@ const projects = [
 export function Projects() {
   return (
     <section id="referenties" className="bg-cream">
-      <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+      <div className="mx-auto  wrap py-20 lg:py-28">
         <Reveal className="max-w-2xl">
-          <h2 className="text-3xl sm:text-4xl">Projecten in heel Nederland en België</h2>
+          <h2 className="text-4xl lg:text-[60px]">Projecten in heel Nederland en België</h2>
           <p className="mt-4 text-bark/75">
             Van een woonhuis in de straat tot een rijksmonument met een eeuwenoude kap.
           </p>
@@ -55,12 +55,12 @@ export function Projects() {
             <Reveal key={project.title} delay={(i % 2) * 110}>
               <article className="group">
                 <div className="mb-3 flex items-center justify-between text-sm">
-                  <span className="rounded-full bg-sage px-3 py-1 text-forest">
+                  <span className="bg-sage px-3 py-1 text-forest">
                     {project.category}
                   </span>
                   <span className="text-bark/60">{project.place}</span>
                 </div>
-                <div className="overflow-hidden rounded-2xl">
+                <div className="overflow-hidden rounded-none">
                   <img
                     src={project.image}
                     alt={project.alt}

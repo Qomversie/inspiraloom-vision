@@ -25,9 +25,9 @@ const items = [
 
 export function Certifications() {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+    <section className="line-top mx-auto  wrap py-20 lg:py-28">
       <Reveal className="max-w-2xl">
-        <h2 className="text-3xl sm:text-4xl">Aangesloten en gecertificeerd</h2>
+        <h2 className="text-4xl lg:text-[60px]">Aangesloten en gecertificeerd</h2>
         <p className="mt-4 text-bark/75">
           U weet waar u aan toe bent. Wij werken volgens vaste richtlijnen en laten ons toetsen.
         </p>
@@ -35,14 +35,14 @@ export function Certifications() {
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {items.map((item, i) => (
           <Reveal key={item.name} delay={i * 80}>
-            <article className="flex h-full flex-col rounded-2xl bg-sage p-6">
+            <article className="flex h-full flex-col rounded-none bg-sage p-6">
               <h3 className="text-lg">{item.name}</h3>
               <p className="mt-3 flex-1 text-[15px] text-forest/80">{item.text}</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {item.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-background/70 px-3 py-1 text-xs text-forest"
+                    className="bg-background/70 px-3 py-1 text-xs text-forest"
                   >
                     {tag}
                   </span>
