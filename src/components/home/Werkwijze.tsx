@@ -28,7 +28,8 @@ const steps = [
 
 export function Werkwijze() {
  return (
-  <section id="werkwijze" className="line-top grid-lines container-site py-20 lg:py-28">
+  <section id="werkwijze" className="line-top">
+<div className="container-site py-20 lg:py-28">
    <div className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr]">
     <Reveal>
      <div className="rings-pattern-light flex h-full min-h-72 flex-col justify-between rounded-none bg-forest-deep p-8">
@@ -56,6 +57,7 @@ export function Werkwijze() {
      </Accordion>
     </Reveal>
    </div>
-  </section>
+  </div>
+</section>
  );
 }

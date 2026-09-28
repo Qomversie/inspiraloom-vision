@@ -148,7 +148,7 @@
 
 /* Technische-tekening lijnen */
 @utility line-top {
-  border-top: 1px solid color-mix(in oklab, var(--color-forest) 20%, transparent);
+  border-top: 1px solid color-mix(in oklab, var(--color-forest) 15%, transparent);
 }
 
 @utility grid-lines {
