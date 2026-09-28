@@ -6,7 +6,7 @@ type Variant = "primary" | "sage" | "outline";
 
 const variants: Record<Variant, string> = {
  primary: "bg-primary text-primary-foreground hover:bg-forest-deep",
- sage: "bg-sage text-forest hover:bg-cream",
+ sage: "bg-sage text-forest hover:bg-background",
  outline: "border border-forest/30 text-forest hover:bg-sage/60",
 };
 

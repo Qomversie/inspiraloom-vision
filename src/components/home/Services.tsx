@@ -53,7 +53,7 @@ const services = [
 
 export function Services() {
  return (
-  <section id="diensten" className="bg-cream">
+  <section id="diensten" className="line-top bg-background">
    <div className="container-site py-20 lg:py-28">
     <Reveal className="max-w-[720px]">
      <h2 className="text-4xl lg:text-[60px]">Houtaantasters en schimmels</h2>
@@ -65,22 +65,21 @@ export function Services() {
     <div className="mt-12 grid gap-6 lg:grid-cols-3">
      {services.map((service, i) => (
       <Reveal key={service.title} delay={(i % 3) * 90} className={service.span}>
-       <article className="group h-full overflow-hidden rounded-none bg-background">
-        <div className="relative h-56 overflow-hidden">
-         <img
-          src={service.image}
-          alt={service.alt}
-          loading="lazy"
-          width={1024}
-          height={768}
-          className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
-         />
-        </div>
-        <div className="p-6">
-         <h3 className="text-xl">{service.title}</h3>
-         <p className="mt-2 text-[15px] text-bark/75">{service.text}</p>
-        </div>
-       </article>
+       <article className="group relative h-80 overflow-hidden lg:h-[420px]">
+ <img
+ src={service.image}
+ alt={service.alt}
+ loading="lazy"
+ width={1024}
+ height={768}
+ className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-105"
+ />
+ <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/80 via-forest-deep/20 to-transparent" />
+ <div className="absolute inset-x-0 bottom-0 max-w-[520px] p-6 lg:p-8">
+ <h3 className="text-2xl text-white lg:text-3xl">{service.title}</h3>
+ <p className="mt-2 text-[15px] text-white/85">{service.text}</p>
+ </div>
+ </article>
       </Reveal>
      ))}
     </div>
