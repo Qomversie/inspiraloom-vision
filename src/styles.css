@@ -119,7 +119,7 @@
 @utility rings-pattern-light {
   background-image: repeating-radial-gradient(
     circle at center,
-    color-mix(in oklab, var(--color-sage) 22%, transparent) 0 1px,
+    color-mix(in oklab, var(--color-sage) 30%, transparent) 0 1px,
     transparent 1px 16px
   );
 }
