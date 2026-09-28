@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
-import logo from "@/assets/logo-hoekstra.jpg.asset.json";
+import logo from "@/assets/logo-mark.png.asset.json";
 
 const menu = [
   { label: "Houtaantasters", href: "#diensten" },
@@ -23,7 +23,7 @@ export function SiteHeader() {
             alt="Hoekstra Houtbehoud"
             width={48}
             height={48}
-            className="size-11 rounded-full object-cover object-top"
+            className="size-11 rounded-full object-cover"
           />
           <span className="leading-tight">
             <span className="block text-sm font-semibold tracking-wide text-forest uppercase">

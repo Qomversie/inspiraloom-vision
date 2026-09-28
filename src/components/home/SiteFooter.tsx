@@ -1,4 +1,4 @@
-import logo from "@/assets/logo-hoekstra.jpg.asset.json";
+import logo from "@/assets/logo-mark.png.asset.json";
 
 const menu = [
   { label: "Houtaantasters", href: "#diensten" },
@@ -21,7 +21,7 @@ export function SiteFooter() {
               width={56}
               height={56}
               loading="lazy"
-              className="size-12 rounded-full object-cover object-top"
+              className="size-12 rounded-full object-cover"
             />
             <span className="text-sm font-semibold tracking-wide text-sage uppercase">
               Hoekstra Houtbehoud
