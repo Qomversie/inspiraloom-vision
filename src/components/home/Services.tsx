@@ -53,7 +53,7 @@ const services = [
 
 export function Services() {
  return (
-  <section id="diensten" className="line-top bg-background">
+  <section id="diensten" className="line-top bg-cream">
    <div className="container-site py-20 lg:py-28">
     <Reveal className="max-w-[720px]">
      <h2 className="text-4xl lg:text-[60px]">Houtaantasters en schimmels</h2>

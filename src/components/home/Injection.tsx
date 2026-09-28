@@ -25,7 +25,7 @@ export function Injection() {
      </div>
     </Reveal>
     <Reveal delay={120} className="relative">
-     <div className="rings-pattern-light pointer-events-none absolute -right-24 -top-24 size-[360px] rounded-full opacity-70" />
+     <div className="rings-pattern-light pointer-events-none absolute -right-40 -top-40 size-[520px] rounded-full" />
      <img
       src={injectie}
       alt="Vakman brengt met een injectienaald middel in een oude eiken balk"
