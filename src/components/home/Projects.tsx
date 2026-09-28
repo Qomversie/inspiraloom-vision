@@ -42,7 +42,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="referenties" className="line-top border-b border-forest/15 bg-background">
+    <section id="referenties" className="line-top bg-background">
       <div className="container-site py-20 lg:py-28">
         <Reveal className="max-w-[720px]">
           <h2 className="text-4xl lg:text-[60px]">Projecten in heel Nederland en België</h2>

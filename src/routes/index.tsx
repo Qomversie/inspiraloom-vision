@@ -8,6 +8,7 @@ import { Services } from "@/components/home/Services";
 import { Injection } from "@/components/home/Injection";
 import { Certifications } from "@/components/home/Certifications";
 import { Projects } from "@/components/home/Projects";
+import { PhotoBand } from "@/components/home/PhotoBand";
 import { Werkwijze } from "@/components/home/Werkwijze";
 import { Reviews } from "@/components/home/Reviews";
 import { ContactBlock } from "@/components/home/ContactBlock";
@@ -47,6 +48,7 @@ function Index() {
         <Injection />
         <Certifications />
         <Projects />
+        <PhotoBand />
         <Werkwijze />
         <Reviews />
         <ContactBlock />
