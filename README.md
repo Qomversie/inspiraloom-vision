@@ -1,14 +1,16 @@
-# Welcome to your Lovable project
+# Hoekstra Houtbehoud
+
+De bijgevoegde screenshots zijn alleen ter inspiratie voor de sfeer, de indeling van de blokken en het moderne gevoel. Kopieer ze niet letterlijk. Gebruik altijd de kleuren, lettertypes en teksten uit deze prompt.
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/531e656c-bfc2-43fe-bdce-2ca7874f5cc9).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +22,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
