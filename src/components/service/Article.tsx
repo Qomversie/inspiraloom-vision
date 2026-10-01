@@ -81,8 +81,8 @@ export function Article({
   question,
 }: {
   part1: ArticleSection[];
-  part2?: ArticleSection[];
-  photos?: [Photo, Photo, Photo];
+  part2?: ArticleSection[] | undefined;
+  photos?: [Photo, Photo, Photo] | undefined;
   question: string;
 }) {
   const toc = [...part1, ...part2];
