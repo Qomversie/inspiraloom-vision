@@ -36,7 +36,7 @@ export function RecentProjects({ projects }: { projects: NonNullable<ServiceCont
             <Reveal key={p.title} delay={i * 100}>
               <a href="/#referenties" className="group block">
                 <div className="overflow-hidden">
-                  <img src={p.image} alt={p.alt} loading="lazy" width={1280} height={960} className="h-[280px] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={p.image} alt={p.alt} loading="lazy" width={1280} height={960} className="h-[200px] w-full md:h-[280px] object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <h3 className="mt-4 text-2xl text-white">{p.title}</h3>
                 <p className="text-[15px] text-white/70">{p.place}</p>

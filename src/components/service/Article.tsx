@@ -97,7 +97,7 @@ export function Article({
         <aside className="lg:border-l lg:border-forest/15 lg:pl-8">
           <div className="lg:sticky lg:top-28">
             <ContactCard question={question} />
-            <nav aria-label="Inhoud" className="mt-8">
+            <nav aria-label="Inhoud" className="mt-8 hidden md:block">
               <p className="mb-3 text-sm font-medium tracking-[0.08em] text-forest uppercase">Op deze pagina</p>
               <ul className="border-t border-forest/20 text-[16px]">
                 {toc.map((t) => (
