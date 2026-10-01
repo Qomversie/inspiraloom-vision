@@ -30,7 +30,7 @@ export function ServiceHero({ c }: { c: ServiceContent }) {
         </nav>
         <p className="mb-4 text-sm font-medium tracking-[0.08em] text-amber uppercase">{c.label}</p>
         <h1 className="max-w-4xl text-4xl text-white sm:text-5xl lg:text-[72px]">{c.title}</h1>
-        <p className="mt-5 max-w-[720px] text-lg text-sage">{c.intro}</p>
+        {c.intro && <p className="mt-5 max-w-[720px] text-lg text-sage">{c.intro}</p>}
         <div className="mt-8 flex flex-wrap gap-3">
           <ArrowButton href="tel:0513529899" variant="sage" icon={<Phone className="size-4" aria-hidden />}>
             Bel direct
