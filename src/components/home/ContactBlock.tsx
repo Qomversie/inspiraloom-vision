@@ -4,7 +4,10 @@ import portret from "@/assets/portret.jpg";
 import { ArrowButton } from "./ArrowButton";
 import { Reveal } from "./Reveal";
 
-export function ContactBlock() {
+export function ContactBlock({
+ title = "Wij denken graag met u mee",
+ text = "Twijfelt u of het hout nog wordt aangetast? Bel ons of stuur een bericht. Jaap of Jurjen kijkt met u mee en vertelt u eerlijk wat er nodig is.",
+}: { title?: string; text?: string } = {}) {
  return (
   <section id="contact" className="relative isolate overflow-hidden">
    <img
@@ -27,11 +30,8 @@ export function ContactBlock() {
        height={912}
        className="size-20 rounded-full object-cover"
       />
-      <h2 className="mt-6 text-4xl lg:text-[60px]">Wij denken graag met u mee</h2>
-      <p className="mt-4 text-bark/75">
-       Twijfelt u of het hout nog wordt aangetast? Bel ons of stuur een bericht. Jaap of
-       Jurjen kijkt met u mee en vertelt u eerlijk wat er nodig is.
-      </p>
+      <h2 className="mt-6 text-4xl lg:text-[60px]">{title}</h2>
+      <p className="mt-4 text-bark/75">{text}</p>
       <div className="mt-8 flex flex-wrap gap-3">
        <ArrowButton
         href="tel:0513529899"
