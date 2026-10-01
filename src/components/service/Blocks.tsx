@@ -25,11 +25,11 @@ export function PhotoStrip({ photos }: { photos: NonNullable<ServiceContent["pho
 
 export function RecentProjects({ projects }: { projects: NonNullable<ServiceContent["projects"]> }) {
   return (
-    <section className="line-top">
+    <section className="rings-pattern-light bg-forest-deep">
       <div className="container-site py-16 lg:py-24">
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <h2 className="text-4xl lg:text-[60px]">Recente projecten</h2>
-          <ArrowButton href="/#referenties">Alle referenties</ArrowButton>
+          <h2 className="text-4xl text-white lg:text-[60px]">Recente projecten</h2>
+          <ArrowButton href="/#referenties" variant="sage">Alle referenties</ArrowButton>
         </div>
         <div className={`mt-10 grid gap-6 sm:grid-cols-2 ${projects.length >= 3 ? "lg:grid-cols-3" : ""}`}>
           {projects.map((p, i) => (
@@ -38,8 +38,8 @@ export function RecentProjects({ projects }: { projects: NonNullable<ServiceCont
                 <div className="overflow-hidden">
                   <img src={p.image} alt={p.alt} loading="lazy" width={1280} height={960} className="h-[280px] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
-                <h3 className="mt-4 text-2xl">{p.title}</h3>
-                <p className="text-[15px] text-bark/70">{p.place}</p>
+                <h3 className="mt-4 text-2xl text-white">{p.title}</h3>
+                <p className="text-[15px] text-white/70">{p.place}</p>
               </a>
             </Reveal>
           ))}

@@ -20,7 +20,7 @@ function renderBlock(b: Block, i: number) {
 
 function ContactCard({ question }: { question: string }) {
   return (
-    <div className="bg-sage p-6 lg:p-8">
+    <div className="bg-sage p-6">
       <div className="flex items-center gap-4">
         <img src={portret} alt="Jaap en Jurjen Hoekstra" loading="lazy" width={912} height={912} className="size-14 shrink-0 rounded-full object-cover" />
         <p className="text-xl leading-snug text-forest">{question}</p>
@@ -38,7 +38,7 @@ function ContactCard({ question }: { question: string }) {
           ))}
         </ul>
       <div className="mt-6 flex flex-col gap-2">
-        <ArrowButton href="tel:0513529899" icon={<Phone className="size-4" aria-hidden />}>
+        <ArrowButton href="tel:0513529899" className="justify-between whitespace-nowrap pl-5 text-[15px]" icon={<Phone className="size-4" aria-hidden />}>
           Bel direct voor professioneel advies!
         </ArrowButton>
         <ArrowButton href="mailto:info@hoekstrahoutbehoud.nl" variant="outline" icon={<Mail className="size-4" aria-hidden />}>
@@ -65,7 +65,7 @@ function Sections({ sections }: { sections: ArticleSection[] }) {
   return (
     <>
       {sections.map((s) => (
-        <div key={s.id} id={s.id} className="scroll-mt-28 mt-14 first:mt-0">
+        <div key={s.id} id={s.id} className="scroll-mt-28 mt-14 max-w-[820px] first:mt-0">
           <h2 className="text-4xl lg:text-[56px]">{s.title}</h2>
           {s.blocks.map((b, i) => renderBlock(b, i))}
         </div>
@@ -88,13 +88,13 @@ export function Article({
   const toc = [...part1, ...part2];
   return (
     <section className="line-top">
-      <div className="container-site grid gap-12 py-16 lg:grid-cols-[minmax(0,720px)_380px] lg:justify-between lg:py-24">
+      <div className="container-site grid gap-12 py-16 lg:grid-cols-[minmax(0,1fr)_420px] lg:gap-16 lg:py-24">
         <div className="min-w-0">
           <Sections sections={part1} />
           {photos && <PhotoGrid photos={photos} />}
           {part2.length > 0 && <div className={photos ? "" : "mt-14"}><Sections sections={part2} /></div>}
         </div>
-        <aside className="lg:border-l lg:border-forest/15 lg:pl-10">
+        <aside className="lg:border-l lg:border-forest/15 lg:pl-8">
           <div className="lg:sticky lg:top-28">
             <ContactCard question={question} />
             <nav aria-label="Inhoud" className="mt-8">
