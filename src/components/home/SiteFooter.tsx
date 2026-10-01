@@ -1,12 +1,12 @@
 import logo from "@/assets/logo-mark.png.asset.json";
 
 const menu = [
- { label: "Houtaantasters", href: "#diensten" },
- { label: "Schimmels & zwammen", href: "#diensten" },
- { label: "Bestrijdingsmethoden", href: "#methode" },
- { label: "Referenties", href: "#referenties" },
- { label: "Over ons", href: "#werkwijze" },
- { label: "Contact", href: "#contact" },
+ { label: "Houtaantasters", href: "/#diensten" },
+ { label: "Schimmels & zwammen", href: "/#diensten" },
+ { label: "Bestrijdingsmethoden", href: "/#methode" },
+ { label: "Referenties", href: "/#referenties" },
+ { label: "Over ons", href: "/#werkwijze" },
+ { label: "Contact", href: "/#contact" },
 ];
 
 export function SiteFooter() {

@@ -3,12 +3,12 @@ import { Menu, Phone, X } from "lucide-react";
 import logo from "@/assets/logo-mark.png.asset.json";
 
 const menu = [
- { label: "Houtaantasters", href: "#diensten" },
- { label: "Schimmels & zwammen", href: "#diensten" },
- { label: "Bestrijdingsmethoden", href: "#methode" },
- { label: "Referenties", href: "#referenties" },
- { label: "Over ons", href: "#werkwijze" },
- { label: "Contact", href: "#contact" },
+ { label: "Houtaantasters", href: "/#diensten" },
+ { label: "Schimmels & zwammen", href: "/#diensten" },
+ { label: "Bestrijdingsmethoden", href: "/#methode" },
+ { label: "Referenties", href: "/#referenties" },
+ { label: "Over ons", href: "/#werkwijze" },
+ { label: "Contact", href: "/#contact" },
 ];
 
 export function SiteHeader() {
@@ -17,7 +17,7 @@ export function SiteHeader() {
  return (
   <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur">
    <div className="mx-auto flex items-center justify-between gap-6 container-site py-3">
-    <a href="#top" className="flex items-center gap-3">
+    <a href="/" className="flex items-center gap-3">
      <img
       src={logo.url}
       alt="Hoekstra Houtbehoud"
