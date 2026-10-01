@@ -17,7 +17,7 @@ export const huiszwamContent: ServiceContent = {
   title: "Huiszwam",
   heroImage: huiszwam,
   heroAlt: "Zwamgroei op een vochtige vloerbalk in een kruipruimte",
-  cardQuestion: "Vermoedt u huiszwam?",
+  cardQuestion: "Last van ongedierte?",
   part1: [
     {
       id: "huiszwam-bestrijden",
