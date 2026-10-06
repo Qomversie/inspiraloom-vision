@@ -74,7 +74,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
      <a
       href="tel:0513529899"
       className={cn(
-       "hidden items-center gap-3 whitespace-nowrap py-2 pl-5 pr-2 text-[13px] font-medium tracking-[0.08em] uppercase transition-colors duration-200 sm:inline-flex",
+       "hidden items-center gap-3 whitespace-nowrap py-2 pl-5 pr-2 text-[13px] font-semibold tracking-[0.08em] uppercase transition-colors duration-200 sm:inline-flex",
        clear ? "bg-sage text-forest hover:bg-background" : "bg-primary text-primary-foreground hover:bg-forest-deep",
       )}
      >
