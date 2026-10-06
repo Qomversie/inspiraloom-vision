@@ -39,7 +39,7 @@ export function SiteHeader() {
      </span>
     </a>
 
-    <nav className="hidden min-w-0 items-center gap-6 xl:flex 2xl:gap-8">
+    <nav className="hidden min-w-0 items-center gap-8 min-[1400px]:flex">
      {menu.map((item) => (
       <a
        key={item.label}
@@ -76,7 +76,7 @@ export function SiteHeader() {
       onClick={() => setOpen((v) => !v)}
       aria-label={open ? "Menu sluiten" : "Menu openen"}
       aria-expanded={open}
-      className="flex size-11 items-center justify-center rounded-full border border-forest/25 text-forest xl:hidden"
+      className="flex size-11 items-center justify-center rounded-full border border-forest/25 text-forest min-[1400px]:hidden"
      >
       {open ? <X className="size-5" aria-hidden /> : <Menu className="size-5" aria-hidden />}
      </button>
@@ -84,7 +84,7 @@ export function SiteHeader() {
    </div>
 
    {open && (
-    <nav className="border-t border-border bg-background xl:hidden">
+    <nav className="border-t border-border bg-background min-[1400px]:hidden">
      <div className="mx-auto flex flex-col container-site py-2">
       {menu.map((item) => (
        <a
