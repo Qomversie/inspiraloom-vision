@@ -13,7 +13,8 @@ export function ServiceHero({ c }: { c: ServiceContent }) {
         className="absolute inset-0 size-full object-cover"
       />
       <div className="absolute inset-0 bg-forest-deep/65" />
-      <div className="relative flex min-h-[50vh] flex-col justify-end container-site pb-12 pt-20 lg:pb-16">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-forest-deep/50 to-transparent" />
+      <div className="relative flex min-h-[50vh] flex-col justify-end container-site pb-12 pt-36 lg:pb-16">
         <nav aria-label="Broodkruimel" className="mb-6 text-sm text-sage/75">
           {c.breadcrumb.map((b, i) => (
             <span key={b.label}>

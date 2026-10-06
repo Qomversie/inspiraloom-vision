@@ -11,7 +11,7 @@ import type { ServiceContent } from "./types";
 export function ServicePage({ c }: { c: ServiceContent }) {
   return (
     <div className="bg-background pb-14 lg:pb-0">
-      <SiteHeader />
+      <SiteHeader overlay />
       <main>
         <ServiceHero c={c} />
         <Article part1={c.part1} part2={c.part2} photos={c.photos} question={c.cardQuestion} />
