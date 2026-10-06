@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
+import { useRouterState } from "@tanstack/react-router";
+import { cn } from "@/lib/utils";
 import logo from "@/assets/logo-mark.png.asset.json";
 
-const menu = [
+const menu: { label: string; href: string; match?: string }[] = [
  { label: "Houtaantasters", href: "/#diensten" },
- { label: "Schimmels & zwammen", href: "/#diensten" },
+ { label: "Schimmels & zwammen", href: "/#diensten", match: "/schimmels-zwammen" },
  { label: "Bestrijdingsmethoden", href: "/#methode" },
  { label: "Referenties", href: "/#referenties" },
  { label: "Over ons", href: "/#werkwijze" },
@@ -13,10 +15,12 @@ const menu = [
 
 export function SiteHeader() {
  const [open, setOpen] = useState(false);
+ const pathname = useRouterState({ select: (st) => st.location.pathname });
+ const isActive = (m?: string) => !!m && pathname.startsWith(m);
 
  return (
   <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur">
-   <div className="mx-auto flex items-center justify-between gap-6 container-site py-3">
+   <div className="mx-auto flex items-center justify-between gap-6 container-site py-4">
     <a href="/" className="flex items-center gap-3">
      <img
       src={logo.url}
@@ -26,10 +30,10 @@ export function SiteHeader() {
       className="size-11 rounded-full object-cover"
      />
      <span className="leading-tight">
-      <span className="block text-sm font-semibold tracking-wide text-forest uppercase">
+      <span className="block text-[13px] font-semibold tracking-[0.1em] text-forest uppercase">
        Hoekstra
       </span>
-      <span className="block text-sm font-semibold tracking-wide text-bark uppercase">
+      <span className="block text-[13px] font-normal tracking-[0.1em] text-forest uppercase">
        Houtbehoud
       </span>
      </span>
@@ -40,7 +44,10 @@ export function SiteHeader() {
       <a
        key={item.label}
        href={item.href}
-       className="text-[16px] tracking-[0.04em] text-bark/80 transition-colors hover:text-forest"
+       className={cn(
+        "relative whitespace-nowrap text-[13px] font-medium tracking-[0.1em] text-forest uppercase transition-colors after:absolute after:inset-x-0 after:-bottom-1.5 after:h-px after:bg-current after:opacity-0 after:transition-opacity hover:text-forest-deep hover:after:opacity-100",
+        isActive(item.match) && "after:opacity-100",
+       )}
       >
        {item.label}
       </a>
@@ -50,7 +57,7 @@ export function SiteHeader() {
     <div className="flex items-center gap-2">
      <a
       href="tel:0513529899"
-      className="hidden items-center gap-3 bg-primary py-2 pl-5 pr-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-forest-deep sm:inline-flex"
+      className="hidden items-center gap-3 whitespace-nowrap bg-primary py-2 pl-5 pr-2 text-[13px] font-medium tracking-[0.08em] uppercase text-primary-foreground transition-colors hover:bg-forest-deep sm:inline-flex"
      >
       Bel 0513 529 899
       <span className="flex size-8 items-center justify-center rounded-full bg-primary-foreground/15">
@@ -84,7 +91,7 @@ export function SiteHeader() {
         key={item.label}
         href={item.href}
         onClick={() => setOpen(false)}
-        className="border-b border-border/60 py-3 text-bark/85 last:border-0"
+        className="border-b border-border/60 py-3 text-[14px] font-medium tracking-[0.1em] text-forest uppercase last:border-0"
        >
         {item.label}
        </a>
