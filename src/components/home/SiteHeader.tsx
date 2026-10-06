@@ -21,7 +21,7 @@ export function SiteHeader() {
  return (
   <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur">
    <div className="mx-auto flex items-center justify-between gap-6 container-site py-4">
-    <a href="/" className="flex items-center gap-3">
+    <a href="/" className="flex shrink-0 items-center gap-3">
      <img
       src={logo.url}
       alt="Hoekstra Houtbehoud"
@@ -39,7 +39,7 @@ export function SiteHeader() {
      </span>
     </a>
 
-    <nav className="hidden items-center gap-8 xl:flex">
+    <nav className="hidden min-w-0 items-center gap-6 xl:flex 2xl:gap-8">
      {menu.map((item) => (
       <a
        key={item.label}
@@ -54,7 +54,7 @@ export function SiteHeader() {
      ))}
     </nav>
 
-    <div className="flex items-center gap-2">
+    <div className="flex shrink-0 items-center gap-2">
      <a
       href="tel:0513529899"
       className="hidden items-center gap-3 whitespace-nowrap bg-primary py-2 pl-5 pr-2 text-[13px] font-medium tracking-[0.08em] uppercase text-primary-foreground transition-colors hover:bg-forest-deep sm:inline-flex"
