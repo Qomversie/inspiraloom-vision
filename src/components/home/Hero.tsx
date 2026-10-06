@@ -13,7 +13,8 @@ export function Hero() {
     className="absolute inset-0 size-full object-cover"
    />
    <div className="absolute inset-0 bg-forest-deep/55" />
-   <div className="relative mx-auto flex min-h-[88vh] flex-col justify-end container-site pb-16 pt-24 lg:pb-24">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-forest-deep/50 to-transparent" />
+   <div className="relative mx-auto flex min-h-[88vh] flex-col justify-end container-site pb-16 pt-36 lg:pb-24">
     <p className="mb-5 inline-flex w-fit items-center gap-2 bg-background/15 px-4 py-1.5 text-sm text-sage backdrop-blur">
      <span className="size-2 rounded-full bg-amber" aria-hidden />
      Familiebedrijf uit Tijnje, sinds 1984

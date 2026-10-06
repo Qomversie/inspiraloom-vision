@@ -38,7 +38,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="bg-background">
-      <SiteHeader />
+      <SiteHeader overlay />
       <main>
         <Hero />
         <Stats />
