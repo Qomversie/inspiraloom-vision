@@ -43,7 +43,7 @@ const stats = [
 export function AboutStats() {
   return (
     <section className="rings-pattern-subtle bg-sage line-top">
-      <div className="container-site grid grid-cols-2 gap-x-6 gap-y-10 py-14 lg:grid-cols-4 lg:py-16">
+      <div className="container-site grid grid-cols-2 gap-x-6 gap-y-10 py-20 lg:grid-cols-4 lg:py-28">
         {stats.map((s, i) => (
           <Reveal key={s.label} delay={i * 90}>
             <p className="text-3xl font-medium text-forest lg:text-5xl">{s.value}</p>
