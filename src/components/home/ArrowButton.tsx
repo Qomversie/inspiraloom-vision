@@ -16,16 +16,22 @@ export function ArrowButton({
  variant = "primary",
  className,
  icon,
+ target,
+ rel,
 }: {
  children: ReactNode;
  href?: string;
  variant?: Variant;
  className?: string;
  icon?: ReactNode;
+ target?: string;
+ rel?: string;
 }) {
  return (
   <a
    href={href}
+   target={target}
+   rel={rel}
    className={cn(
     "group inline-flex items-center gap-3 py-2 pl-6 pr-2 text-base font-medium transition-colors",
     variants[variant],

@@ -50,12 +50,12 @@ export function ContactDetailsAndForm() {
               <a
                 key={p.href}
                 href={p.href}
-                className="flex items-center gap-3 rounded-[var(--contact-card-radius)] bg-cream p-3 transition-colors hover:bg-sage"
+                className="flex items-center gap-2.5 rounded-[var(--contact-card-radius)] bg-cream p-3 transition-colors hover:bg-sage"
               >
                 <img src={portret} alt={`Portret ${p.name}`} loading="lazy" className="size-14 shrink-0 rounded-full object-cover" />
                 <span className="min-w-0">
-                  <span className="block font-semibold text-forest">{p.name}</span>
-                  <span className="block break-words text-bark/80">{p.text}</span>
+                  <span className="block text-[15px] font-semibold text-forest">{p.name}</span>
+                  <span className="block break-words text-[15px] text-bark/80">{p.text}</span>
                 </span>
               </a>
             ))}
@@ -82,6 +82,8 @@ export function ContactDetailsAndForm() {
           <ArrowButton
             href="https://www.google.com/maps/dir/?api=1&destination=Riperwei+23,+8406+AL+Tijnje"
             variant="outline"
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-4 max-w-full gap-3 pl-4 text-sm sm:pl-6 sm:text-base"
             icon={<ArrowRight className="size-4" aria-hidden />}
           >
