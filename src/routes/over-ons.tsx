@@ -8,7 +8,7 @@ import { MobileCallBar } from "@/components/service/Blocks";
 import type { ServiceContent } from "@/components/service/types";
 import balken from "@/assets/kapconstructie.jpg";
 import {
-  AboutCerts, AboutLinks, AboutOpening, AboutPeople, AboutStats, AboutSteps, AboutStory,
+  AboutCerts, AboutLinks, AboutOpening, AboutPeople, AboutStats, AboutInjection, AboutStory,
 } from "@/components/about/AboutSections";
 
 const title = "Over ons — Hoekstra Houtbehoud, familiebedrijf uit Tijnje";
@@ -44,9 +44,9 @@ function AboutPage() {
       <main>
         <ServiceHero c={hero} />
         <AboutOpening />
+        <AboutInjection />
         <AboutStory />
         <AboutStats />
-        <AboutSteps />
         <AboutPeople />
         <AboutCerts />
         <AboutLinks />

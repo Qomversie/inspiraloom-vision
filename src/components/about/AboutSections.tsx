@@ -5,6 +5,7 @@ import molen from "@/assets/molen.jpg";
 import kerk from "@/assets/kerk-akkrum.jpg";
 import stadspoort from "@/assets/stadspoort.jpg";
 import boerderij from "@/assets/boerderij.jpg";
+import injectie from "@/assets/injectie.jpg";
 import { Reveal } from "@/components/home/Reveal";
 
 export function AboutOpening() {
@@ -15,8 +16,8 @@ export function AboutOpening() {
           <p className="text-sm font-medium tracking-[0.08em] text-amber uppercase">Familiebedrijf uit Tijnje</p>
           <h2 className="mt-4 text-4xl lg:text-[60px]">Erfgoed beschermen is geen klus. Het is ons vak.</h2>
           <p className="mt-6 max-w-[720px] text-bark/75">
-            Al meer dan 35 jaar beschermen wij Nederlands erfgoed tegen houtworm, boktor, bonte
-            knaagkever en zwammen. Vanuit het hart van Friesland, met de handen aan het hout.
+            Bij Hoekstra zijn we al meer dan 35 jaar actief om Neerlands erfgoed te beschermen tegen
+            alle ongewenste veelvraten, zoals de bonte knaagkever, de boktor, zwammen en houtwormen.
           </p>
         </Reveal>
         <Reveal delay={120}>
@@ -32,27 +33,14 @@ export function AboutStory() {
     <section className="bg-cream line-top">
       <div className="container-site grid gap-12 py-20 lg:grid-cols-[1fr_1fr] lg:py-28">
         <Reveal className="max-w-[720px]">
-          <h2 className="text-4xl lg:text-[60px]">Ons verhaal</h2>
+          <h2 className="text-4xl lg:text-[60px]">Hoekstra Bedrijfshygiëne</h2>
           <div className="mt-6 space-y-4 text-bark/80">
-            <p>
-              Hoekstra is een familiebedrijf uit Tijnje, opgericht in [jaartal]. Wat begon als
-              Hoekstra Bedrijfshygiëne heet nu Hoekstra Houtbehoud. Die naam past beter bij waar
-              wij voor staan: het behoud van hout.
-            </p>
-            <p>
-              "Wij schieten geen kanon af op een mug." We bestrijden gericht, met milieubewuste
-              middelen. Zo verdwijnt alleen het ongedierte en blijft het gebouw behouden. Waar het
-              kan, kiezen we voor heteluchtbehandeling, zonder chemische middelen.
-            </p>
-            <p>
-              Onze eigen uitvinding is de gepatenteerde Hoekstra Injectie: kleinere gaten en geen
-              zichtbare sporen. De Rijksdienst voor het Cultureel Erfgoed nam de methode op als
-              standaard in de URL 5001.
-            </p>
-            <p>
-              Inmiddels behandelden wij honderden kerken, molens, boerderijen, scholen en
-              woonhuizen, in heel Nederland, België en daarbuiten.
-            </p>
+            <p>Dat doen we op een slagvaardige manier, waarbij alleen het ongedierte het loodje legt en het monument (evenals de omgeving) voor de toekomst behouden blijft.</p>
+            <p><strong>Bij Hoekstra</strong> maken we geen gebruik van het spreekwoordelijke 'kanon om een mug uit de lucht te schieten'. Wij passen onze <a href="/bestrijdingsmethoden/" className="text-forest underline underline-offset-4 hover:text-forest-deep">bestrijdingsmethoden</a> subtiel toe en gebruiken milieubewuste middelen om het ongedierte selectief te elimineren.</p>
+            <p>We werken ook met een <a href="/bestrijdingsmethoden/heteluchtbehandeling/" className="text-forest underline underline-offset-4 hover:text-forest-deep">hete luchtbehandeling</a>. Dat betekent bestrijding zonder chemische middelen, maar met een 100% resultaat.</p>
+            <p>Tot slot kunnen we vergassen. Maar dat alleen in het uiterste geval.</p>
+            <p><strong>Bij Hoekstra</strong> weten we hoe we met een minimale inzet van tijd, geld en bestrijdingsmiddelen een maximaal effect kunnen bereiken. Honderden scholen, boerderijen, <a href="/over-ons/expertise/ongediertebestrijding-kerken/" className="text-forest underline underline-offset-4 hover:text-forest-deep">kerken</a> en woonhuizen hebben wij van schadelijk ongedierte verlost en evenzoveel gebouwen voor de toekomst beschermd.</p>
+            <p>Ook u kunt <strong>bij Hoekstra</strong> terecht om ongedierte in de kiem te smoren. Bel Jaap Hoekstra (<a href="tel:+31654211898" className="text-forest underline underline-offset-4 hover:text-forest-deep">06-54211898</a>) en maak direct een afspraak.</p>
           </div>
         </Reveal>
         <Reveal delay={120} className="flex items-center lg:border-l lg:border-forest/15 lg:pl-12">
@@ -85,33 +73,6 @@ export function AboutStats() {
             <p className="mt-2 text-sm text-sage/75">{s.label}</p>
           </Reveal>
         ))}
-      </div>
-    </section>
-  );
-}
-
-const steps = [
-  { title: "Inspectie", text: "We komen langs en kijken wat er echt aan de hand is: welk insect of welke zwam, en hoe ver het is." },
-  { title: "Advies op maat", text: "U krijgt een eerlijk advies. Alleen wat nodig is, met een heldere prijs vooraf." },
-  { title: "Behandeling met garantie", text: "Wij behandelen gericht en zorgvuldig. U krijgt garantie op het resultaat." },
-];
-
-export function AboutSteps() {
-  return (
-    <section className="bg-sage">
-      <div className="container-site py-20 lg:py-28">
-        <Reveal className="max-w-[720px]">
-          <h2 className="text-4xl lg:text-[60px]">Zo werken wij</h2>
-        </Reveal>
-        <div className="mt-12 grid lg:grid-cols-3">
-          {steps.map((s, i) => (
-            <Reveal key={s.title} delay={i * 100} className="border-t border-forest/20 py-8 lg:border-l lg:px-8 lg:first:border-l-0 lg:first:pl-0">
-              <p className="text-5xl text-forest/40">0{i + 1}</p>
-              <h3 className="mt-4 text-2xl">{s.title}</h3>
-              <p className="mt-3 text-forest/80">{s.text}</p>
-            </Reveal>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -204,6 +165,31 @@ export function AboutLinks() {
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+export function AboutInjection() {
+  return (
+    <section className="bg-forest-deep text-sage">
+      <div className="container-site grid items-center gap-12 py-20 lg:grid-cols-2 lg:py-28">
+        <Reveal>
+          <img src={injectie} alt="Injectie in een oude houten constructie" loading="lazy" className="aspect-[4/3] w-full object-cover" />
+        </Reveal>
+        <Reveal delay={120} className="max-w-[720px]">
+          <p className="text-sm font-medium tracking-[0.08em] text-amber uppercase">Eigen uitvinding</p>
+          <h3 className="mt-4 text-4xl text-white lg:text-[56px]">Eigen gepatenteerde injectiemethode</h3>
+          <p className="mt-6 inline-block border border-sage/40 px-4 py-2 text-sm font-semibold tracking-[0.08em] text-sage uppercase">Gepatenteerd · Standaard in de URL 5001</p>
+          <p className="mt-6 text-sage/85">
+            Bij Hoekstra hanteren we daarnaast een gepatenteerde injectiemethode om de bonte knaagkever of huisboktor in hout te bestrijden. Dat doen we uiterst zorgvuldig, zodat ongewenste sporen van de ingreep definitief tot het verleden behoren. Dit is een reden voor de REC* om deze methode als standaard te bestempelen en op te nemen in de URL 5001. Dit houdt in dat de oude injectiemethode niet langer is toegestaan in monumenten.
+          </p>
+          <p className="mt-3 text-sm text-sage/60">*Rijksdienst voor het Cultureel Erfgoed</p>
+          <a href="/bestrijdingsmethoden/injecteren/" className="mt-8 inline-flex items-center gap-3 bg-sage py-2 pl-5 pr-2 font-medium text-forest hover:bg-cream">
+            Meer over Hoekstra Injectie
+            <span className="flex size-9 items-center justify-center rounded-full bg-forest/10"><ArrowRight className="size-4" aria-hidden /></span>
+          </a>
+        </Reveal>
       </div>
     </section>
   );
