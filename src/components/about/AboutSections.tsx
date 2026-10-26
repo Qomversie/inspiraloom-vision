@@ -11,30 +11,12 @@ import { Reveal } from "@/components/home/Reveal";
 export function AboutOpening() {
   return (
     <section className="line-top">
-      <div className="container-site grid items-center gap-12 py-20 lg:grid-cols-2 lg:py-28">
-        <Reveal>
-          <p className="text-sm font-medium tracking-[0.08em] text-amber uppercase">Familiebedrijf uit Tijnje</p>
-          <h2 className="mt-4 text-4xl lg:text-[60px]">Erfgoed beschermen is geen klus. Het is ons vak.</h2>
-          <p className="mt-6 max-w-[720px] text-bark/75">
-            Bij Hoekstra zijn we al meer dan 35 jaar actief om Neerlands erfgoed te beschermen tegen
-            alle ongewenste veelvraten, zoals de bonte knaagkever, de boktor, zwammen en houtwormen.
-          </p>
-        </Reveal>
-        <Reveal delay={120}>
-          <img src={vakman} alt="Vakman inspecteert oude eiken balken in een kapconstructie" loading="lazy" width={1280} height={1600} className="aspect-[4/5] w-full object-cover" />
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-export function AboutStory() {
-  return (
-    <section className="bg-cream line-top">
-      <div className="container-site grid gap-12 py-20 lg:grid-cols-[1fr_1fr] lg:py-28">
+      <div className="container-site grid gap-12 py-20 lg:grid-cols-2 lg:py-28">
         <Reveal className="max-w-[720px]">
-          <h2 className="text-4xl lg:text-[60px]">Hoekstra Bedrijfshygiëne</h2>
+          <p className="text-sm font-medium tracking-[0.08em] text-amber uppercase">Hoekstra Bedrijfshygiëne</p>
+          <h2 className="mt-4 text-4xl lg:text-[60px]">Erfgoed beschermen is geen klus. Het is ons vak.</h2>
           <div className="mt-6 space-y-4 text-bark/80">
+            <p><strong>Bij Hoekstra</strong> zijn we al meer dan 35 jaar actief om Neerlands erfgoed te beschermen tegen alle ongewenste veelvraten, zoals de bonte knaagkever, de boktor, zwammen en houtwormen.</p>
             <p>Dat doen we op een slagvaardige manier, waarbij alleen het ongedierte het loodje legt en het monument (evenals de omgeving) voor de toekomst behouden blijft.</p>
             <p><strong>Bij Hoekstra</strong> maken we geen gebruik van het spreekwoordelijke 'kanon om een mug uit de lucht te schieten'. Wij passen onze <a href="/bestrijdingsmethoden/" className="text-forest underline underline-offset-4 hover:text-forest-deep">bestrijdingsmethoden</a> subtiel toe en gebruiken milieubewuste middelen om het ongedierte selectief te elimineren.</p>
             <p>We werken ook met een <a href="/bestrijdingsmethoden/heteluchtbehandeling/" className="text-forest underline underline-offset-4 hover:text-forest-deep">hete luchtbehandeling</a>. Dat betekent bestrijding zonder chemische middelen, maar met een 100% resultaat.</p>
@@ -43,12 +25,25 @@ export function AboutStory() {
             <p>Ook u kunt <strong>bij Hoekstra</strong> terecht om ongedierte in de kiem te smoren. Bel Jaap Hoekstra (<a href="tel:+31654211898" className="text-forest underline underline-offset-4 hover:text-forest-deep">06-54211898</a>) en maak direct een afspraak.</p>
           </div>
         </Reveal>
-        <Reveal delay={120} className="flex items-center lg:border-l lg:border-forest/15 lg:pl-12">
-          <blockquote>
-            <p className="text-3xl leading-[1.2] tracking-[-0.02em] text-forest lg:text-[44px]">
-              "Een monument behandel je niet als een bouwproject. Je behandelt het met respect."
-            </p>
-            <footer className="mt-6 text-sm font-medium tracking-[0.08em] text-bark/70 uppercase">Jaap Hoekstra</footer>
+        <Reveal delay={120} className="relative min-h-[420px] lg:min-h-0">
+          <img src={vakman} alt="Vakman inspecteert oude eiken balken in een kapconstructie" loading="lazy" width={1280} height={1600} className="absolute inset-0 size-full object-cover" />
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+export function AboutQuote() {
+  return (
+    <section className="bg-cream line-top">
+      <div className="container-site py-20 text-center lg:py-28">
+        <Reveal>
+          <blockquote className="mx-auto max-w-[1000px]">
+            <p className="text-3xl leading-[1.2] tracking-[-0.02em] text-forest lg:text-[52px]">"Een monument behandel je niet als een bouwproject. Je behandelt het met respect."</p>
+            <footer className="mt-8 flex items-center justify-center gap-4">
+              <img src={portret} alt="Portret Jaap Hoekstra" loading="lazy" className="size-14 rounded-full object-cover" />
+              <span className="text-sm font-medium tracking-[0.08em] text-bark/70 uppercase">Jaap Hoekstra</span>
+            </footer>
           </blockquote>
         </Reveal>
       </div>
@@ -78,9 +73,11 @@ export function AboutStats() {
   );
 }
 
-const people = [
-  { name: "Jaap Hoekstra", role: "Eigenaar", phone: "06-54211898", tel: "0654211898" },
-  { name: "Jurjen Hoekstra", role: "[Rol Jurjen]", phone: "06-19242503", tel: "0619242503" },
+type Person = { name: string; role: string; phone?: string; tel?: string; photo: string };
+const people: Person[] = [
+  { name: "Jaap Hoekstra", role: "Eigenaar", phone: "06-54211898", tel: "+31654211898", photo: portret },
+  { name: "Jurjen Hoekstra", role: "[functie]", phone: "06-19242503", tel: "+31619242503", photo: portret },
+  { name: "[Naam]", role: "[functie]", photo: portret },
 ];
 
 export function AboutPeople() {
@@ -91,18 +88,20 @@ export function AboutPeople() {
           <h2 className="text-4xl lg:text-[60px]">De mensen achter Hoekstra</h2>
           <p className="mt-4 text-bark/75">U belt met ons rechtstreeks. Geen callcenter, maar de vakman zelf.</p>
         </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
           {people.map((p, i) => (
-            <Reveal key={p.name} delay={i * 120}>
-              <article className="bg-cream">
-                <img src={portret} alt={`Portret ${p.name}`} loading="lazy" width={912} height={912} className="aspect-[4/3] w-full object-cover" />
-                <div className="p-7">
+            <Reveal key={p.name + i} delay={i * 100}>
+              <article className="flex h-full flex-col bg-cream">
+                <img src={p.photo} alt={`Portret ${p.name}`} loading="lazy" className="aspect-[3/4] w-full object-cover" />
+                <div className="flex flex-1 flex-col p-7">
                   <h3 className="text-2xl">{p.name}</h3>
                   <p className="mt-1 text-bark/70">{p.role}</p>
-                  <a href={`tel:${p.tel}`} className="mt-5 inline-flex items-center gap-3 bg-primary py-2 pl-5 pr-2 font-medium text-primary-foreground hover:bg-forest-deep">
-                    {p.phone}
-                    <span className="flex size-9 items-center justify-center rounded-full bg-primary-foreground/15"><Phone className="size-4" aria-hidden /></span>
-                  </a>
+                  {p.phone && (
+                    <a href={`tel:${p.tel}`} className="mt-5 inline-flex items-center gap-3 self-start bg-primary py-2 pl-5 pr-2 font-medium text-primary-foreground hover:bg-forest-deep">
+                      {p.phone}
+                      <span className="flex size-9 items-center justify-center rounded-full bg-primary-foreground/15"><Phone className="size-4" aria-hidden /></span>
+                    </a>
+                  )}
                 </div>
               </article>
             </Reveal>
@@ -127,6 +126,7 @@ export function AboutCerts() {
           {certs.map((c, i) => (
             <Reveal key={c.name} delay={i * 80}>
               <article className="h-full bg-sage p-7">
+                <div className="mb-6 flex h-16 w-40 items-center justify-center bg-white text-sm text-bark/50">Logo</div>
                 <h3 className="text-xl">{c.name}</h3>
                 <p className="mt-3 text-forest/80">{c.text}</p>
               </article>
