@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { ServiceHero } from "@/components/service/ServiceHero";
-import { ContactDetailsAndForm, ContactFeatures, ContactMap } from "@/components/contact/ContactSections";
+import { ContactDetailsAndForm, ContactFeatures } from "@/components/contact/ContactSections";
 import balken from "@/assets/kapconstructie.jpg";
 
 const title = "Contact | Hoekstra Houtbehoud";
@@ -35,7 +35,6 @@ function ContactPage() {
           title: "Wij denken graag met u mee",
         }} />
         <ContactDetailsAndForm />
-        <ContactMap />
         <ContactFeatures />
       </main>
       <SiteFooter />
