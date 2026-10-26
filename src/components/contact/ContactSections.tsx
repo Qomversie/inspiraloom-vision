@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Mail, Phone } from "lucide-react";
+import { ArrowRight, Mail, Phone } from "lucide-react";
 import portret from "@/assets/portret.jpg";
 import { ArrowButton } from "@/components/home/ArrowButton";
 import { Reveal } from "@/components/home/Reveal";
@@ -121,33 +121,3 @@ export function ContactDetailsAndForm() {
   );
 }
 
-const features = [
-  "Gediplomeerd specialist in het bestrijden van ongedierte en zwammen",
-  "Specialist in bestrijding in Monumenten en Monumentale panden",
-  "Voor particulieren als voor zakelijke klanten",
-];
-
-export function ContactFeatures() {
-  return (
-    <section className="bg-sage">
-      <Reveal className="container-site py-20 lg:py-28">
-        <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between md:gap-10">
-          <h3 className="text-4xl lg:text-[48px]">Last van ongedierte?</h3>
-          <ArrowButton href="tel:0513529899" className="max-w-full gap-3 pl-4 text-sm sm:pl-6 sm:text-base" icon={<Phone className="size-4" aria-hidden />}>
-            Bel direct voor professioneel advies!
-          </ArrowButton>
-        </div>
-        <ul className="mt-10 grid gap-6 md:grid-cols-3 md:gap-8">
-          {features.map((text) => (
-            <li key={text} className="bg-background p-7">
-              <span className="flex size-11 items-center justify-center rounded-full bg-sage">
-                <Check className="size-5 text-forest" aria-hidden />
-              </span>
-              <p className="mt-5 text-bark">{text}</p>
-            </li>
-          ))}
-        </ul>
-      </Reveal>
-    </section>
-  );
-}
