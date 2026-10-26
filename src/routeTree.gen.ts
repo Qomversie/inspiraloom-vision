@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OverOnsRouteImport } from './routes/over-ons'
 import { Route as SchimmelsZwammenHuiszwamRouteImport } from './routes/schimmels-zwammen.huiszwam'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OverOnsRoute = OverOnsRouteImport.update({
+  id: '/over-ons',
+  path: '/over-ons',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SchimmelsZwammenHuiszwamRoute =
@@ -26,27 +32,31 @@ const SchimmelsZwammenHuiszwamRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/over-ons': typeof OverOnsRoute
   '/schimmels-zwammen/huiszwam': typeof SchimmelsZwammenHuiszwamRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/over-ons': typeof OverOnsRoute
   '/schimmels-zwammen/huiszwam': typeof SchimmelsZwammenHuiszwamRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/over-ons': typeof OverOnsRoute
   '/schimmels-zwammen/huiszwam': typeof SchimmelsZwammenHuiszwamRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/schimmels-zwammen/huiszwam'
+  fullPaths: '/' | '/over-ons' | '/schimmels-zwammen/huiszwam'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/schimmels-zwammen/huiszwam'
-  id: '__root__' | '/' | '/schimmels-zwammen/huiszwam'
+  to: '/' | '/over-ons' | '/schimmels-zwammen/huiszwam'
+  id: '__root__' | '/' | '/over-ons' | '/schimmels-zwammen/huiszwam'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  OverOnsRoute: typeof OverOnsRoute
   SchimmelsZwammenHuiszwamRoute: typeof SchimmelsZwammenHuiszwamRoute
 }
 
@@ -57,6 +67,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/over-ons': {
+      id: '/over-ons'
+      path: '/over-ons'
+      fullPath: '/over-ons'
+      preLoaderRoute: typeof OverOnsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/schimmels-zwammen/huiszwam': {
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  OverOnsRoute: OverOnsRoute,
   SchimmelsZwammenHuiszwamRoute: SchimmelsZwammenHuiszwamRoute,
 }
 export const routeTree = rootRouteImport

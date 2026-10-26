@@ -5,7 +5,7 @@ const menu = [
  { label: "Schimmels & zwammen", href: "/#diensten" },
  { label: "Bestrijdingsmethoden", href: "/#methode" },
  { label: "Referenties", href: "/#referenties" },
- { label: "Over ons", href: "/#werkwijze" },
+ { label: "Over ons", href: "/over-ons" },
  { label: "Contact", href: "/#contact" },
 ];
 
