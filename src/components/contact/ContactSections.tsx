@@ -73,6 +73,32 @@ export function ContactDetailsAndForm() {
   );
 }
 
+export function ContactMap() {
+  return (
+    <section className="bg-background">
+      <Reveal className="container-site pb-20 lg:pb-24">
+        <div className="overflow-hidden rounded-[var(--contact-card-radius)]">
+          <iframe
+            title="Kaart Hoekstra Houtbehoud, Riperwei 23 Tijnje"
+            src="https://www.google.com/maps?q=Riperwei+23,+8406+AL+Tijnje&output=embed"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="h-[300px] w-full border-0 md:h-[420px]"
+          />
+        </div>
+        <a
+          href="https://www.google.com/maps/dir/?api=1&destination=Riperwei+23,+8406+AL+Tijnje"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-block text-sm text-amber hover:underline"
+        >
+          Plan uw route
+        </a>
+      </Reveal>
+    </section>
+  );
+}
+
 const features = [
   "Gediplomeerd specialist in het bestrijden van ongedierte en zwammen",
   "Specialist in bestrijding in Monumenten en Monumentale panden",
