@@ -2,9 +2,11 @@ import { Mail, Phone } from "lucide-react";
 import { ArrowButton } from "@/components/home/ArrowButton";
 import type { ServiceContent } from "./types";
 
-export function ServiceHero({ c }: { c: ServiceContent }) {
+type HeroContent = Pick<ServiceContent, "heroImage" | "heroAlt" | "breadcrumb" | "label" | "title" | "intro">;
+
+export function ServiceHero({ c, compact = false }: { c: HeroContent; compact?: boolean }) {
   return (
-    <section id="top" className="relative isolate min-h-[50vh] overflow-hidden">
+    <section id="top" className={`relative isolate overflow-hidden ${compact ? "min-h-[360px]" : "min-h-[50vh]"}`}>
       <img
         src={c.heroImage}
         alt={c.heroAlt}
@@ -14,7 +16,7 @@ export function ServiceHero({ c }: { c: ServiceContent }) {
       />
       <div className="absolute inset-0 bg-forest-deep/65" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-forest-deep/50 to-transparent" />
-      <div className="relative flex min-h-[50vh] flex-col justify-end container-site pb-12 pt-36 lg:pb-16">
+      <div className={`relative flex flex-col justify-end container-site pb-12 pt-36 lg:pb-16 ${compact ? "min-h-[360px]" : "min-h-[50vh]"}`}>
         <nav aria-label="Broodkruimel" className="mb-6 text-sm text-sage/75">
           {c.breadcrumb.map((b, i) => (
             <span key={b.label}>
@@ -32,7 +34,7 @@ export function ServiceHero({ c }: { c: ServiceContent }) {
         <p className="mb-4 text-sm font-medium tracking-[0.08em] text-amber uppercase">{c.label}</p>
         <h1 className="max-w-4xl text-4xl text-white sm:text-5xl lg:text-[72px]">{c.title}</h1>
         {c.intro && <p className="mt-5 max-w-[720px] text-lg text-sage">{c.intro}</p>}
-        <div className="mt-8 flex flex-wrap gap-3">
+        {!compact && <div className="mt-8 flex flex-wrap gap-3">
           <ArrowButton href="tel:0513529899" variant="sage" icon={<Phone className="size-4" aria-hidden />}>
             Bel direct
           </ArrowButton>
@@ -44,7 +46,7 @@ export function ServiceHero({ c }: { c: ServiceContent }) {
           >
             Stuur ons een bericht
           </ArrowButton>
-        </div>
+        </div>}
       </div>
     </section>
   );

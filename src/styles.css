@@ -53,6 +53,7 @@
 
 :root {
   --radius: 0rem;
+  --contact-card-radius: 16px;
 
   --forest: oklch(0.379 0.069 134.5);
   --forest-deep: oklch(0.281 0.045 135.4);
