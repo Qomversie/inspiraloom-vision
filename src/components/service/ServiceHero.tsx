@@ -1,8 +1,8 @@
-import { Check, Mail, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { ArrowButton } from "@/components/home/ArrowButton";
 import type { ServiceContent } from "./types";
 
-type HeroContent = Pick<ServiceContent, "heroImage" | "heroAlt" | "breadcrumb" | "label" | "title" | "intro"> & { points?: string[] };
+type HeroContent = Pick<ServiceContent, "heroImage" | "heroAlt" | "breadcrumb" | "label" | "title" | "intro">;
 
 export function ServiceHero({ c, compact = false }: { c: HeroContent; compact?: boolean }) {
   return (
@@ -33,16 +33,6 @@ export function ServiceHero({ c, compact = false }: { c: HeroContent; compact?: 
         </nav>
         <p className="mb-4 text-sm font-medium tracking-[0.08em] text-amber uppercase">{c.label}</p>
         <h1 className="max-w-4xl text-4xl text-white sm:text-5xl lg:text-[72px]">{c.title}</h1>
-        {c.points && (
-          <ul className="mt-8 grid gap-3 sm:grid-cols-3 sm:gap-6">
-            {c.points.map((p) => (
-              <li key={p} className="flex items-start gap-2 text-[15px] font-normal text-white">
-                <Check className="mt-1 size-4 shrink-0 text-amber" aria-hidden />
-                <span className="min-w-0">{p}</span>
-              </li>
-            ))}
-          </ul>
-        )}
         {c.intro && <p className="mt-5 max-w-[720px] text-lg text-sage">{c.intro}</p>}
         {!compact && <div className="mt-8 flex flex-wrap gap-3">
           <ArrowButton href="tel:0513529899" variant="sage" icon={<Phone className="size-4" aria-hidden />}>

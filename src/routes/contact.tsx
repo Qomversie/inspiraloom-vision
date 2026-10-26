@@ -33,11 +33,6 @@ function ContactPage() {
           breadcrumb: [{ label: "Home", href: "/" }, { label: "Contact" }],
           label: "Contact",
           title: "Wij denken graag met u mee",
-          points: [
-            "Gediplomeerd specialist in het bestrijden van ongedierte en zwammen",
-            "Specialist in bestrijding in Monumenten en Monumentale panden",
-            "Voor particulieren als voor zakelijke klanten",
-          ],
         }} />
         <ContactDetailsAndForm />
       </main>
