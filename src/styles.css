@@ -116,6 +116,14 @@
   );
 }
 
+@utility rings-pattern-subtle {
+  background-image: repeating-radial-gradient(
+    circle at center,
+    color-mix(in oklab, var(--color-forest) 6%, transparent) 0 1px,
+    transparent 1px 16px
+  );
+}
+
 @utility rings-pattern-light {
   background-image: repeating-radial-gradient(
     circle at center,

@@ -10,7 +10,7 @@ import { Reveal } from "@/components/home/Reveal";
 
 export function AboutOpening() {
   return (
-    <section className="line-top">
+    <section className="bg-background line-top">
       <div className="container-site grid gap-12 py-20 lg:grid-cols-2 lg:py-28">
         <Reveal className="max-w-[720px]">
           <p className="text-sm font-medium tracking-[0.08em] text-amber uppercase">Hoekstra Bedrijfshygiëne</p>
@@ -33,24 +33,6 @@ export function AboutOpening() {
   );
 }
 
-export function AboutQuote() {
-  return (
-    <section className="bg-cream line-top">
-      <div className="container-site py-20 text-center lg:py-28">
-        <Reveal>
-          <blockquote className="mx-auto max-w-[1000px]">
-            <p className="text-3xl leading-[1.2] tracking-[-0.02em] text-forest lg:text-[52px]">"Een monument behandel je niet als een bouwproject. Je behandelt het met respect."</p>
-            <footer className="mt-8 flex items-center justify-center gap-4">
-              <img src={portret} alt="Portret Jaap Hoekstra" loading="lazy" className="size-14 rounded-full object-cover" />
-              <span className="text-sm font-medium tracking-[0.08em] text-bark/70 uppercase">Jaap Hoekstra</span>
-            </footer>
-          </blockquote>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 const stats = [
   { value: "35+", label: "jaar ervaring" },
   { value: "Honderden", label: "monumenten behandeld" },
@@ -60,12 +42,12 @@ const stats = [
 
 export function AboutStats() {
   return (
-    <section className="rings-pattern-light bg-forest-deep">
-      <div className="container-site grid grid-cols-2 gap-x-6 gap-y-10 py-14 lg:grid-cols-4 lg:py-16">
+    <section className="rings-pattern-subtle bg-sage line-top">
+      <div className="container-site grid grid-cols-2 gap-x-6 gap-y-10 py-20 lg:grid-cols-4 lg:py-28">
         {stats.map((s, i) => (
           <Reveal key={s.label} delay={i * 90}>
-            <p className="text-3xl font-medium text-sage lg:text-5xl">{s.value}</p>
-            <p className="mt-2 text-sm text-sage/75">{s.label}</p>
+            <p className="text-3xl font-medium text-forest lg:text-5xl">{s.value}</p>
+            <p className="mt-2 text-sm text-bark/80">{s.label}</p>
           </Reveal>
         ))}
       </div>
