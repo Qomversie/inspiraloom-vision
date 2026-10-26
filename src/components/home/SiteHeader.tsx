@@ -9,7 +9,7 @@ const menu: { label: string; href: string; match?: string }[] = [
  { label: "Schimmels & zwammen", href: "/#diensten", match: "/schimmels-zwammen" },
  { label: "Bestrijdingsmethoden", href: "/#methode" },
  { label: "Referenties", href: "/#referenties" },
- { label: "Over ons", href: "/#werkwijze" },
+ { label: "Over ons", href: "/over-ons", match: "/over-ons" },
  { label: "Contact", href: "/#contact" },
 ];
 
