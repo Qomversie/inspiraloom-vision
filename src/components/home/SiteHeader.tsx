@@ -120,8 +120,6 @@ export function SiteHeader(_props: { overlay?: boolean }) {
   const isActive = (m?: string) => !!m && pathname.startsWith(m);
   const activeItem = menu.find((m) => m.label === mega);
   const activeMega = activeItem?.mega;
-  const sharedCategories = menu.filter((item) => item.mega && item.label !== "Over ons");
-  const panelCategories = activeItem?.label === "Over ons" ? [activeItem] : sharedCategories;
 
   return (
     <header
@@ -189,8 +187,8 @@ export function SiteHeader(_props: { overlay?: boolean }) {
       </div>
 
       {activeMega && (
-        <div className={cn("absolute top-full hidden border-b border-forest/15 bg-cream shadow-lg shadow-bark/5 animate-in fade-in slide-in-from-top-2 duration-200 min-[1400px]:block", activeItem?.label === "Over ons" ? "right-10 w-[680px]" : "inset-x-0")}>
-          <div className={cn("mx-auto grid max-w-[1360px] gap-12 border-t border-forest/15 container-site py-6", activeItem?.label === "Over ons" ? "grid-cols-[260px_1fr]" : "grid-cols-[260px_repeat(3,minmax(0,1fr))]")}>
+        <div className="absolute inset-x-0 top-full hidden border-t border-b border-forest/15 bg-cream shadow-lg shadow-bark/5 animate-in fade-in slide-in-from-top-2 duration-200 min-[1400px]:block">
+          <div className="mx-auto grid max-w-[1360px] grid-cols-[260px_1fr] gap-12 container-site py-6">
             <div>
               <img src={activeMega.image} alt={activeMega.alt} loading="lazy" className="h-32 w-60 object-cover" />
               <a
@@ -200,18 +198,11 @@ export function SiteHeader(_props: { overlay?: boolean }) {
                 {activeMega.all} <ArrowRight className="size-4" aria-hidden />
               </a>
             </div>
-            {panelCategories.map((category) => (
-              <div key={category.label} className={cn("-m-4 p-4", category.label === mega && "bg-background")}>
-                <a href={category.href} className="mb-3 block text-base font-semibold text-forest hover:text-forest-deep">
-                  {category.label}
-                </a>
-                <ul>
-                  {category.mega?.links.flatMap((link) => [link, ...(link.children ?? [])]).map((link) => (
-                    <li key={link.label}><MegaLink label={link.label} href={link.href} /></li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            <ul className="grid max-w-[640px] grid-flow-col grid-rows-3 content-start gap-x-12">
+              {activeMega.links.flatMap((link) => [link, ...(link.children ?? [])]).map((link) => (
+                <li key={link.label}><MegaLink label={link.label} href={link.href} /></li>
+              ))}
+            </ul>
           </div>
         </div>
       )}
