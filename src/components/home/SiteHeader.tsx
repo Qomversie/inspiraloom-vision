@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { ChevronDown, Menu, Phone, X } from "lucide-react";
+import { ChevronDown, ChevronRight, Menu, Phone, X } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-mark.png.asset.json";
 import houtworm from "@/assets/houtworm.jpg";
 import huiszwam from "@/assets/huiszwam.jpg";
@@ -88,7 +89,7 @@ const menu: Item[] = [
   { label: "Contact", href: "/contact", match: "/contact" },
 ];
 
-function MegaLink({ label, href, small }: { label: string; href: string; small?: boolean }) {
+function MegaLink({ label, href, children }: { label: string; href: string; children?: React.ReactNode }) {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const current = !href.includes("#") && pathname.replace(/\/$/, "") === href.replace(/\/$/, "");
   return (
@@ -96,13 +97,12 @@ function MegaLink({ label, href, small }: { label: string; href: string; small?:
       href={href}
       aria-current={current ? "page" : undefined}
       className={cn(
-        "relative block font-normal leading-[28px] text-bark transition-colors hover:text-forest",
-        small ? "text-[15px]" : "text-[16px]",
-        current && "font-semibold text-forest",
+        "flex min-h-12 items-center justify-between gap-3 border-b border-forest/15 text-[16px] font-semibold leading-6 text-forest transition-colors hover:text-amber focus-visible:text-amber",
+        current && "text-amber",
       )}
     >
-      {current && <span aria-hidden className="absolute -left-3 top-3 size-1 rounded-full bg-amber" />}
       {label}
+      {children}
     </a>
   );
 }
@@ -112,16 +112,22 @@ export function SiteHeader(_props: { overlay?: boolean }) {
   const [open, setOpen] = useState(false);
   const [mega, setMega] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [subMenu, setSubMenu] = useState<string | null>(null);
+  const [mobileSubMenu, setMobileSubMenu] = useState<string | null>(null);
   const pathname = useRouterState({ select: (st) => st.location.pathname });
   const isActive = (m?: string) => !!m && pathname.startsWith(m);
   const activeItem = menu.find((m) => m.label === mega);
   const activeMega = activeItem?.mega;
-  const activeLinkCount = activeMega?.links.reduce((count, link) => count + 1 + (link.children?.length ?? 0), 0) ?? 0;
+  const activeChildren = activeMega?.links.find((link) => link.label === subMenu)?.children;
+  const showCategory = (label: string | null) => {
+    if (mega !== label) setSubMenu(null);
+    setMega(label);
+  };
 
   return (
     <header
       className="sticky top-0 z-40 border-b border-forest/15 bg-cream"
-      onMouseLeave={() => setMega(null)}
+      onMouseLeave={() => showCategory(null)}
     >
       <div className="mx-auto flex items-center justify-between gap-6 container-site py-4">
         <a href="/" className="flex shrink-0 items-center gap-3">
@@ -137,12 +143,12 @@ export function SiteHeader(_props: { overlay?: boolean }) {
             <a
               key={item.label}
               href={item.href}
-              onMouseEnter={() => setMega(item.mega ? item.label : null)}
-              onFocus={() => setMega(item.mega ? item.label : null)}
+              onMouseEnter={() => showCategory(item.mega ? item.label : null)}
+              onFocus={() => showCategory(item.mega ? item.label : null)}
               onClick={(event) => {
                 if (!item.mega) return;
                 event.preventDefault();
-                setMega(item.label);
+                showCategory(item.label);
               }}
               aria-expanded={item.mega ? mega === item.label : undefined}
               className={cn(
@@ -189,24 +195,23 @@ export function SiteHeader(_props: { overlay?: boolean }) {
             <div>
               <img src={activeMega.image} alt={activeMega.alt} loading="lazy" className="h-32 w-60 object-cover" />
             </div>
-            <div className="max-w-[640px] self-start">
-              <h2 className="mb-3 text-[18px] font-bold leading-[28px] text-forest">
-                <a href={activeItem?.href} className="transition-colors hover:text-forest-deep">{activeItem?.label}</a>
-              </h2>
-              <ul className={cn("gap-x-12", activeLinkCount > 8 && "columns-2")}>
+            <div className="flex items-start gap-12 self-start">
+              <ul className="w-[260px] shrink-0">
                 {activeMega.links.map((link) => (
-                  <li key={link.label} className="break-inside-avoid">
-                    <MegaLink label={link.label} href={link.href} />
-                    {link.children && (
-                      <ul className="pl-4">
-                        {link.children.map((child) => (
-                          <li key={child.label}><MegaLink label={child.label} href={child.href} small /></li>
-                        ))}
-                      </ul>
-                    )}
+                  <li key={link.label} onMouseEnter={() => setSubMenu(link.children ? link.label : null)} onFocus={() => setSubMenu(link.children ? link.label : null)}>
+                    <MegaLink label={link.label} href={link.href}>
+                      {link.children && <ChevronRight className="size-4" aria-hidden />}
+                    </MegaLink>
                   </li>
                 ))}
               </ul>
+              {activeChildren && (
+                <ul className="w-[260px] shrink-0">
+                  {activeChildren.map((child) => (
+                    <li key={child.label}><MegaLink label={child.label} href={child.href} /></li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </div>
@@ -221,7 +226,7 @@ export function SiteHeader(_props: { overlay?: boolean }) {
                   <>
                     <button
                       type="button"
-                      onClick={() => setExpanded((v) => (v === item.label ? null : item.label))}
+                      onClick={() => { setExpanded((v) => (v === item.label ? null : item.label)); setMobileSubMenu(null); }}
                       aria-expanded={expanded === item.label}
                       className={cn(
                         "flex w-full items-center justify-between py-4 text-left text-[14px] font-semibold tracking-[0.1em] text-bark uppercase",
@@ -235,19 +240,18 @@ export function SiteHeader(_props: { overlay?: boolean }) {
                       />
                     </button>
                     {expanded === item.label && (
-                      <ul className="pb-4 pl-1">
-                        <li>
-                          <a href={item.href} onClick={() => setOpen(false)} className="block py-1.5 text-[15px] font-semibold text-forest">
-                            {item.label}
-                          </a>
-                        </li>
+                      <ul className="pb-4">
                         {item.mega.links.map((l) => (
-                          <li key={l.label} onClick={() => setOpen(false)}>
-                            <MegaLink label={l.label} href={l.href} small />
-                            {l.children && (
+                          <li key={l.label}>
+                            {l.children ? (
+                              <Button variant="ghost" onClick={() => setMobileSubMenu((v) => v === l.label ? null : l.label)} aria-expanded={mobileSubMenu === l.label} className="h-12 w-full justify-between rounded-none border-b border-forest/15 px-0 text-[16px] font-semibold text-forest hover:bg-transparent hover:text-amber">
+                                {l.label}<ChevronRight className={cn(mobileSubMenu === l.label && "rotate-90")} aria-hidden />
+                              </Button>
+                            ) : <div onClick={() => setOpen(false)}><MegaLink label={l.label} href={l.href} /></div>}
+                            {l.children && mobileSubMenu === l.label && (
                               <ul className="pl-4">
                                 {l.children.map((child) => (
-                                  <li key={child.label}><MegaLink label={child.label} href={child.href} small /></li>
+                                  <li key={child.label} onClick={() => setOpen(false)}><MegaLink label={child.label} href={child.href} /></li>
                                 ))}
                               </ul>
                             )}
