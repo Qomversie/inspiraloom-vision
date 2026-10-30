@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Home, Mail, Phone } from "lucide-react";
 import hero from "@/assets/hero-kerk.jpg";
 import { ArrowButton } from "./ArrowButton";
+import { InjectionSeal } from "./InjectionSeal";
 
 export const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?q=Hoekstra+Houtbehoud+Tijnje+reviews";
@@ -35,7 +36,7 @@ export function Hero() {
           Oud hout verdient vakmanschap
         </h1>
         <p className="mt-6 max-w-[720px] text-lg text-white">
-          Eigen gepatenteerde Hoekstra Injectie, standaard in de URL 5001 voor monumenten
+          Specialist in houtworm- en zwambestrijding, van woonhuis tot rijksmonument. Al sinds 1984.
         </p>
         <div className="mt-9 flex flex-wrap gap-3">
           <ArrowButton href="tel:0513529899" icon={<Phone className="size-4" aria-hidden />}>
@@ -50,6 +51,7 @@ export function Hero() {
             Stuur ons een bericht
           </ArrowButton>
         </div>
+        <InjectionSeal />
         <a
           href={GOOGLE_REVIEWS_URL}
           target="_blank"
