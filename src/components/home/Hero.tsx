@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Home, Mail, Phone } from "lucide-react";
 import hero from "@/assets/hero-kerk.jpg";
 import { ArrowButton } from "./ArrowButton";
@@ -65,22 +66,29 @@ export function Hero() {
             { src: "/logos/vca.png", alt: "VCA" },
             { src: "/logos/kk.png", alt: "K+K" },
           ].map((l) => (
-            <li key={l.src} className="flex h-14 w-[90px] items-center justify-center bg-background p-2">
-              <img
-                src={l.src}
-                alt={l.alt}
-                className="max-h-full max-w-full object-contain"
-                onError={(e) => {
-                  const el = e.currentTarget;
-                  el.style.display = "none";
-                  el.parentElement?.setAttribute("data-fallback", l.alt);
-                }}
-              />
-              <span className="hidden text-center text-[10px] font-semibold leading-tight text-forest/70 [[data-fallback]>&]:block">{l.alt}</span>
-            </li>
+            <LogoTile key={l.src} {...l} />
           ))}
         </ul>
       </div>
     </section>
+  );
+}
+
+// Wit logovlakje; toont de naam als plaatshouder zolang het logobestand ontbreekt.
+function LogoTile({ src, alt }: { src: string; alt: string }) {
+  const ref = useRef<HTMLImageElement>(null);
+  const [failed, setFailed] = useState(false);
+  useEffect(() => {
+    const img = ref.current;
+    if (img && img.complete && img.naturalWidth === 0) setFailed(true);
+  }, []);
+  return (
+    <li className="flex h-14 w-[90px] items-center justify-center bg-background p-2">
+      {failed ? (
+        <span className="text-center text-[10px] font-semibold leading-tight text-forest/70">{alt}</span>
+      ) : (
+        <img ref={ref} src={src} alt={alt} onError={() => setFailed(true)} className="max-h-full max-w-full object-contain" />
+      )}
+    </li>
   );
 }
