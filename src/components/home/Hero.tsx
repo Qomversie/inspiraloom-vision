@@ -58,11 +58,25 @@ export function Hero() {
           <Stars className="text-xl" />
           Beoordeeld op Google
         </a>
-        <ul className="mt-10 grid max-w-3xl grid-cols-2 gap-px border-t border-white/25 pt-6 sm:flex sm:flex-wrap sm:items-center sm:gap-x-8 sm:gap-y-3" aria-label="Keurmerken">
-          {["NVPB", "KPMB IPM Houtbescherming", "VCA", "K+K"].map((k, i) => (
-            <li key={k} className="flex items-center gap-3 py-1 text-[13px] font-semibold tracking-[0.1em] text-white/85 uppercase">
-              {i > 0 && <span className="hidden size-1 rounded-full bg-amber sm:block" aria-hidden />}
-              {k}
+        <ul className="mt-10 flex flex-wrap gap-3" aria-label="Keurmerken">
+          {[
+            { src: "/logos/nvpb.png", alt: "NVPB" },
+            { src: "/logos/kpmb.png", alt: "KPMB IPM Houtbescherming" },
+            { src: "/logos/vca.png", alt: "VCA" },
+            { src: "/logos/kk.png", alt: "K+K" },
+          ].map((l) => (
+            <li key={l.src} className="flex h-14 w-[90px] items-center justify-center bg-background p-2">
+              <img
+                src={l.src}
+                alt={l.alt}
+                className="max-h-full max-w-full object-contain"
+                onError={(e) => {
+                  const el = e.currentTarget;
+                  el.style.display = "none";
+                  el.parentElement?.setAttribute("data-fallback", l.alt);
+                }}
+              />
+              <span className="hidden text-center text-[10px] font-semibold leading-tight text-forest/70 [[data-fallback]>&]:block">{l.alt}</span>
             </li>
           ))}
         </ul>
