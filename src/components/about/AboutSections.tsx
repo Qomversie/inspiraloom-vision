@@ -95,7 +95,7 @@ export function AboutPeople() {
 }
 
 const certs = [
-  { name: "KPMB — IPM Houtbescherming", text: "Wij werken volgens het keurmerk voor verantwoorde, gerichte houtbescherming." },
+  { name: "KPMB IPM Houtbescherming", text: "Wij werken volgens het keurmerk voor verantwoorde, gerichte houtbescherming." },
   { name: "NVPB", text: "Lid van de branchevereniging voor plaagdiermanagement en houtbescherming." },
 ];
 

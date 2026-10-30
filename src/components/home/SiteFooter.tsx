@@ -1,3 +1,4 @@
+import { Facebook } from "lucide-react";
 import logo from "@/assets/logo-mark.png.asset.json";
 
 const menu = [
@@ -6,12 +7,12 @@ const menu = [
  { label: "Bestrijdingsmethoden", href: "/#methode" },
  { label: "Referenties", href: "/#referenties" },
  { label: "Over ons", href: "/over-ons" },
- { label: "Contact", href: "/#contact" },
+ { label: "Contact", href: "/contact" },
 ];
 
 export function SiteFooter() {
  return (
-  <footer className="bg-forest-deep text-sage/80">
+  <footer className="bg-forest-deep pb-16 text-sage/80 sm:pb-0">
    <div className="mx-auto grid gap-10 container-site py-16 lg:grid-cols-3">
     <div>
      <div className="flex items-center gap-3">
@@ -30,6 +31,15 @@ export function SiteFooter() {
      <p className="mt-5 max-w-xs text-sm">
       Beheerst, beschermd en conserveert sinds 1984. Werkgebied: heel Nederland en België.
      </p>
+     <a
+      href="https://www.facebook.com/HoekstraBedrijfshygiene"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Hoekstra op Facebook"
+      className="mt-6 inline-flex size-10 items-center justify-center rounded-full bg-sage text-forest transition-colors hover:bg-amber hover:text-primary-foreground"
+     >
+      <Facebook className="size-5" aria-hidden />
+     </a>
     </div>
 
     <div className="text-sm">

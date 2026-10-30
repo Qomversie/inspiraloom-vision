@@ -46,9 +46,6 @@ export function ContactBlock({
        >
         Mail ons
        </ArrowButton>
-       <ArrowButton href="#top" variant="outline">
-        Naar contact
-       </ArrowButton>
       </div>
      </div>
     </Reveal>

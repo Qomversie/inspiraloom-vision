@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/service/ServicePage";
 import { huiszwamContent } from "@/content/huiszwam";
 
-const title = "Huiszwam bestrijden — Hoekstra Houtbehoud";
+const title = "Huiszwam bestrijden | Hoekstra Houtbehoud";
 const description =
   "Huiszwam herkennen en grondig laten bestrijden. Specialist sinds 1984, van woonhuis tot rijksmonument, in heel Nederland en België.";
 

@@ -15,7 +15,7 @@ import { ContactBlock } from "@/components/home/ContactBlock";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { FloatingCall } from "@/components/home/FloatingCall";
 
-const title = "Hoekstra Houtbehoud — houtworm- en zwambestrijding sinds 1984";
+const title = "Hoekstra Houtbehoud: houtworm- en zwambestrijding sinds 1984";
 const description =
   "Specialist in houtwormbestrijding, zwambestrijding en houtconservering. Van woonhuis tot rijksmonument, in heel Nederland en België.";
 
@@ -42,11 +42,11 @@ function Index() {
       <main>
         <Hero />
         <Stats />
+        <Certifications />
         <Intro />
         <TwoRoutes />
         <Services />
         <Injection />
-        <Certifications />
         <Projects />
         <PhotoBand />
         <Werkwijze />
