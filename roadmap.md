@@ -13,5 +13,8 @@
 
 # Homepage injectiezegel
 
+- [x] Gedeeld compact uitklapmenu met drie categorieën en kleiner Over ons-paneel gecontroleerd, inclusief hover, klik en mobiel menu.
+- [x] Steviger zegel met amber lint gecontroleerd; grootte, plaatsing, rotatie van 30s en minder-beweginginstelling behouden.
+
 - [x] Alleen de regel onder de H1 vervangen en een klikbaar injectiezegel toevoegen.
 - [x] Zegel en bewegingsvoorkeur gecontroleerd op desktop (1280/1142) en mobiel (390); geen overlap of horizontale overloop, rotatie 30s en uit bij minder beweging.
