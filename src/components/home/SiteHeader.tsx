@@ -184,7 +184,7 @@ export function SiteHeader(_props: { overlay?: boolean }) {
       </div>
 
       {activeMega && (
-        <div className="absolute inset-x-0 top-full hidden border-b border-forest/15 bg-cream shadow-lg shadow-bark/5 animate-in fade-in slide-in-from-top-2 duration-200 min-[1400px]:block">
+        <div className={cn("absolute top-full hidden border-b border-forest/15 bg-cream shadow-lg shadow-bark/5 animate-in fade-in slide-in-from-top-2 duration-200 min-[1400px]:block", activeItem?.label === "Over ons" ? "right-10 w-[680px]" : "inset-x-0")}>
           <div className={cn("mx-auto grid gap-10 border-t border-forest/15 container-site py-7", activeItem?.label === "Over ons" ? "grid-cols-[260px_1fr]" : "grid-cols-[260px_repeat(3,minmax(0,1fr))]")}>
             <div>
               <img src={activeMega.image} alt={activeMega.alt} loading="lazy" className="h-36 w-full object-cover" />
