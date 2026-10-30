@@ -85,7 +85,7 @@ export function SiteHeader(_props: { overlay?: boolean }) {
 
   return (
     <header
-      className="sticky top-0 z-40 border-b border-border bg-background shadow-[0_1px_12px_-6px] shadow-bark/15"
+      className="sticky top-0 z-40 border-b border-forest/15 bg-cream"
       onMouseLeave={() => setMega(null)}
     >
       <div className="mx-auto flex items-center justify-between gap-6 container-site py-4">

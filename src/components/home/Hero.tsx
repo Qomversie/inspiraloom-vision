@@ -26,7 +26,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-forest-deep/70 via-forest-deep/30 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-forest-deep/50 to-transparent" />
       <div className="relative mx-auto flex min-h-[80vh] flex-col justify-end container-site pb-16 pt-24 lg:pb-24">
-        <p className="mb-5 inline-flex w-fit items-center gap-2 bg-background px-4 py-1.5 text-sm font-medium text-forest">
+        <p className="mb-5 inline-flex w-fit items-center gap-2 border border-white/40 px-4 py-1.5 text-sm font-medium text-white">
           <Home className="size-4 text-amber" aria-hidden />
           Familiebedrijf uit Tijnje, sinds 1984
         </p>
@@ -58,6 +58,14 @@ export function Hero() {
           <Stars className="text-xl" />
           Beoordeeld op Google
         </a>
+        <ul className="mt-10 grid max-w-3xl grid-cols-2 gap-px border-t border-white/25 pt-6 sm:flex sm:flex-wrap sm:items-center sm:gap-x-8 sm:gap-y-3" aria-label="Keurmerken">
+          {["NVPB", "KPMB IPM Houtbescherming", "VCA", "K+K"].map((k, i) => (
+            <li key={k} className="flex items-center gap-3 py-1 text-[13px] font-semibold tracking-[0.1em] text-white/85 uppercase">
+              {i > 0 && <span className="hidden size-1 rounded-full bg-amber sm:block" aria-hidden />}
+              {k}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
