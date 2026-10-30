@@ -16,7 +16,7 @@ export function ServiceHero({ c, compact = false }: { c: HeroContent; compact?: 
       />
       <div className="absolute inset-0 bg-forest-deep/65" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-forest-deep/50 to-transparent" />
-      <div className={`relative flex flex-col justify-end container-site pb-12 pt-36 lg:pb-16 ${compact ? "min-h-[360px]" : "min-h-[50vh]"}`}>
+      <div className={`relative flex flex-col justify-end container-site pb-12 pt-16 lg:pb-16 ${compact ? "min-h-[360px]" : "min-h-[50vh]"}`}>
         <nav aria-label="Broodkruimel" className="mb-6 text-sm text-sage/75">
           {c.breadcrumb.map((b, i) => (
             <span key={b.label}>

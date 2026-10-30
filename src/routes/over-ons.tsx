@@ -11,7 +11,7 @@ import {
   AboutCerts, AboutLinks, AboutOpening, AboutPeople, AboutStats, AboutInjection, 
 } from "@/components/about/AboutSections";
 
-const title = "Over ons — Hoekstra Houtbehoud, familiebedrijf uit Tijnje";
+const title = "Over ons | Hoekstra Houtbehoud, familiebedrijf uit Tijnje";
 const description =
   "Familiebedrijf uit Tijnje dat al ruim 35 jaar Nederlands erfgoed beschermt tegen houtworm en zwam. Maak kennis met Jaap en Jurjen Hoekstra.";
 
@@ -52,7 +52,7 @@ function AboutPage() {
         <ContactBlock />
       </main>
       <SiteFooter />
-      <div className="hidden lg:block"><FloatingCall /></div>
+      <FloatingCall />
       <MobileCallBar />
     </div>
   );

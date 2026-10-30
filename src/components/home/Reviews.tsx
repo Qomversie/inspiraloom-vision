@@ -25,7 +25,7 @@ export function Reviews() {
                   <div className="mt-6 border-t border-forest/20 pt-4">
                     <p className="font-medium text-forest">{review.name}</p>
                     <p className="text-sm text-bark/60">
-                      {review.place} — {review.type}
+                      {review.place}, {review.type}
                     </p>
                   </div>
                 </article>

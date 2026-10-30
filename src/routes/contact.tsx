@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/home/SiteHeader";
+import { FloatingCall } from "@/components/home/FloatingCall";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { ServiceHero } from "@/components/service/ServiceHero";
 import { ContactDetailsAndForm } from "@/components/contact/ContactSections";
@@ -37,6 +38,7 @@ function ContactPage() {
         <ContactDetailsAndForm />
       </main>
       <SiteFooter />
+      <FloatingCall />
     </div>
   );
 }
