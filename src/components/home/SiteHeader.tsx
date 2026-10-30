@@ -93,14 +93,19 @@ const menu: Item[] = [
 ];
 
 function MegaLink({ label, href, small }: { label: string; href: string; small?: boolean }) {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const current = !href.includes("#") && pathname.replace(/\/$/, "") === href.replace(/\/$/, "");
   return (
     <a
       href={href}
+      aria-current={current ? "page" : undefined}
       className={cn(
-        "block font-normal leading-[28px] text-bark transition-colors hover:text-forest",
+        "relative block font-normal leading-[28px] text-bark transition-colors hover:text-forest",
         small ? "text-[15px]" : "text-[16px]",
+        current && "font-semibold text-forest",
       )}
     >
+      {current && <span aria-hidden className="absolute -left-3 top-3 size-1 rounded-full bg-amber" />}
       {label}
     </a>
   );
@@ -185,19 +190,19 @@ export function SiteHeader(_props: { overlay?: boolean }) {
 
       {activeMega && (
         <div className={cn("absolute top-full hidden border-b border-forest/15 bg-cream shadow-lg shadow-bark/5 animate-in fade-in slide-in-from-top-2 duration-200 min-[1400px]:block", activeItem?.label === "Over ons" ? "right-10 w-[680px]" : "inset-x-0")}>
-          <div className={cn("mx-auto grid gap-10 border-t border-forest/15 container-site py-7", activeItem?.label === "Over ons" ? "grid-cols-[260px_1fr]" : "grid-cols-[260px_repeat(3,minmax(0,1fr))]")}>
+          <div className={cn("mx-auto grid max-w-[1360px] gap-12 border-t border-forest/15 container-site py-6", activeItem?.label === "Over ons" ? "grid-cols-[260px_1fr]" : "grid-cols-[260px_repeat(3,minmax(0,1fr))]")}>
             <div>
-              <img src={activeMega.image} alt={activeMega.alt} loading="lazy" className="h-36 w-full object-cover" />
+              <img src={activeMega.image} alt={activeMega.alt} loading="lazy" className="h-32 w-60 object-cover" />
               <a
                 href={activeItem?.href}
-                className="mt-4 inline-flex items-center gap-2 text-[15px] font-semibold text-forest hover:text-amber"
+                className="mt-3 inline-flex items-center gap-1 whitespace-nowrap text-[13px] font-semibold text-forest hover:text-amber"
               >
                 {activeMega.all} <ArrowRight className="size-4" aria-hidden />
               </a>
             </div>
             {panelCategories.map((category) => (
-              <div key={category.label}>
-                <a href={category.href} className={cn("mb-3 block text-base font-semibold text-forest hover:text-amber", category.label === mega && "text-amber")}>
+              <div key={category.label} className={cn("-m-4 p-4", category.label === mega && "bg-background")}>
+                <a href={category.href} className="mb-3 block text-base font-semibold text-forest hover:text-forest-deep">
                   {category.label}
                 </a>
                 <ul>
