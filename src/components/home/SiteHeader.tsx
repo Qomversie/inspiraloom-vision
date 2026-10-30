@@ -85,7 +85,7 @@ function MegaLink({ label, href, children }: { label: string; href: string; chil
       href={href}
       aria-current={current ? "page" : undefined}
       className={cn(
-        "flex min-h-11 items-center justify-between gap-3 border-b border-forest/15 text-[16px] font-semibold leading-6 text-bark transition-colors hover:text-amber focus-visible:text-amber",
+        "flex min-h-11 items-center justify-between gap-3 border-b border-forest/15 text-[16px] font-normal leading-6 text-bark transition-colors hover:text-amber focus-visible:text-amber",
         current && "text-amber",
       )}
     >
@@ -143,6 +143,7 @@ export function SiteHeader(_props: { overlay?: boolean }) {
               ref={(element) => { if (element) categoryLinks.current.set(item.label, element); else categoryLinks.current.delete(item.label); }}
               href={item.href}
               onMouseEnter={() => showCategory(item.mega ? item.label : null)}
+              onPointerMove={() => { if (mega !== (item.mega ? item.label : null)) showCategory(item.mega ? item.label : null); }}
               onFocus={() => showCategory(item.mega ? item.label : null)}
               onClick={(event) => {
                 if (!item.mega) return;
@@ -189,7 +190,7 @@ export function SiteHeader(_props: { overlay?: boolean }) {
       </div>
 
       {activeMega && (
-        <div className="absolute inset-x-0 top-full hidden border-t border-b border-forest/15 bg-cream shadow-lg shadow-bark/5 animate-in fade-in slide-in-from-top-2 duration-200 min-[1400px]:block">
+        <div key={activeItem?.label} className="absolute inset-x-0 top-full hidden border-t border-b border-forest/15 bg-cream shadow-lg shadow-bark/5 animate-in fade-in slide-in-from-top-2 duration-200 min-[1400px]:block">
           <div className="py-6 pr-10" style={{ paddingLeft: panelLeft }}>
             <h2 className="mb-3 text-[18px] font-bold leading-7 text-forest">
               <a href={activeItem?.href} className="transition-colors hover:text-amber">{activeItem?.label}</a>
@@ -243,7 +244,7 @@ export function SiteHeader(_props: { overlay?: boolean }) {
                         {item.mega.links.map((l) => (
                           <li key={l.label}>
                             {l.children ? (
-                              <Button variant="ghost" onClick={() => setMobileSubMenu((v) => v === l.label ? null : l.label)} aria-expanded={mobileSubMenu === l.label} className="h-11 w-full justify-between rounded-none border-b border-forest/15 px-0 text-[16px] font-semibold text-bark hover:bg-transparent hover:text-amber">
+                              <Button variant="ghost" onClick={() => setMobileSubMenu((v) => v === l.label ? null : l.label)} aria-expanded={mobileSubMenu === l.label} className="h-11 w-full justify-between rounded-none border-b border-forest/15 px-0 text-[16px] font-normal text-bark hover:bg-transparent hover:text-amber">
                                 {l.label}<ChevronRight className={cn(mobileSubMenu === l.label && "rotate-90")} aria-hidden />
                               </Button>
                             ) : <div onClick={() => setOpen(false)}><MegaLink label={l.label} href={l.href} /></div>}
