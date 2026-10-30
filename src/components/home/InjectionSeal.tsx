@@ -31,7 +31,7 @@ export function InjectionSeal() {
             <text x="100" y="148">★</text>
             <text x="123" y="143">★</text>
           </g>
-          <path d="M 4,78 H 196 L 190,100 196,122 H 4 L 10,100 Z" className="fill-amber" />
+          <path d="M -8,78 H 208 L 200,100 208,122 H -8 L 0,100 Z" className="fill-amber" />
           <text x="100" y="106" textAnchor="middle" className="fill-cream" fontSize="18" fontWeight="700">HOEKSTRA INJECTIE</text>
         </g>
       </svg>
