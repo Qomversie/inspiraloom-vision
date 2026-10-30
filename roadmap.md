@@ -13,6 +13,8 @@
 
 # Homepage injectiezegel
 
+- [ ] Fotoloos menu uitgelijnd onder categorie met titel en 44px lijstregels; zegel met één ster en klassieke stempellijnen. Desktop en mobiel controleren.
+
 - [x] Menu met gescheiden lijstregels en tweede lijst bij Expertise; zegel met rustiger lint, randtekst en zes sterren. Gecontroleerd op desktop en mobiel, inclusief navigatie, uitklappen en minder beweging.
 
 - [x] Uitklapmenu met klikbare categoriekop, hiërarchische links en automatische tweede kolom; zes subtiele sterretjes in het zegel. Gecontroleerd op desktop en mobiel, inclusief huidige pagina en minder beweging.
