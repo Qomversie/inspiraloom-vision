@@ -13,7 +13,7 @@
 
 # Homepage injectiezegel
 
-- [ ] Uitklapmenu met klikbare categoriekop, hiërarchische links en automatische tweede kolom; zes subtiele sterretjes in het zegel. Controle desktop en mobiel.
+- [x] Uitklapmenu met klikbare categoriekop, hiërarchische links en automatische tweede kolom; zes subtiele sterretjes in het zegel. Gecontroleerd op desktop en mobiel, inclusief huidige pagina en minder beweging.
 
 - [x] Volle-breedtemenu per categorie en groter amber zegellint gecontroleerd; huidige-paginamarkering en bewegingsvoorkeur behouden.
 
