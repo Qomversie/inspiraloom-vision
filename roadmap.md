@@ -14,4 +14,4 @@
 # Homepage injectiezegel
 
 - [x] Alleen de regel onder de H1 vervangen en een klikbaar injectiezegel toevoegen.
-- [ ] Zegel en bewegingsvoorkeur controleren op desktop en mobiel.
+- [x] Zegel en bewegingsvoorkeur gecontroleerd op desktop (1280/1142) en mobiel (390); geen overlap of horizontale overloop, rotatie 30s en uit bij minder beweging.
