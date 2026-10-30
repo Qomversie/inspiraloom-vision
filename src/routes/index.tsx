@@ -42,11 +42,11 @@ function Index() {
       <main>
         <Hero />
         <Stats />
-        <Certifications />
         <Intro />
         <TwoRoutes />
         <Services />
         <Injection />
+        <Certifications />
         <Projects />
         <PhotoBand />
         <Werkwijze />
