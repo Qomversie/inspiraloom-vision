@@ -190,3 +190,16 @@
     transparent 1px 16px
   );
 }
+
+@keyframes injection-seal-turn {
+  to { transform: rotate(360deg); }
+}
+
+.injection-seal-ring {
+  transform-origin: 100px 100px;
+  animation: injection-seal-turn 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .injection-seal-ring { animation: none; }
+}

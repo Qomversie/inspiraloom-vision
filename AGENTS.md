@@ -14,3 +14,4 @@
 - Homepage sections live as separate components in `src/components/home/` and are composed in `src/routes/index.tsx`, so the structure maps one-to-one onto WordPress/Elementor sections later.
 - Brand colors, radius (16px) and the Manrope font live as tokens in `src/styles.css`; components never hardcode color values.
 - Contact page sections live in `src/components/contact/`; the route composes them and uses the optional compact ServiceHero so existing pages retain their appearance.
+- The homepage injection seal is an isolated SVG component with CSS animation limited to its circular text, so its center stays still and reduced-motion preferences can disable rotation.

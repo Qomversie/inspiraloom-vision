@@ -10,3 +10,8 @@
 - [x] Saliegroene strook "Last van ongedierte?" verwijderd.
 - [x] Drie korte punten onder de hero-titel, met amber vinkje, naast elkaar op desktop en onder elkaar op mobiel.
 - [x] Hero compacter: punten weg, ruimte onder de titel 64px desktop en 48px mobiel; kruimelpad, label, titel en foto onaangeroerd.
+
+# Homepage injectiezegel
+
+- [x] Alleen de regel onder de H1 vervangen en een klikbaar injectiezegel toevoegen.
+- [ ] Zegel en bewegingsvoorkeur controleren op desktop en mobiel.
