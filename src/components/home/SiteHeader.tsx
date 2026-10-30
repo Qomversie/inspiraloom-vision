@@ -97,11 +97,10 @@ function MegaLink({ label, href, small }: { label: string; href: string; small?:
     <a
       href={href}
       className={cn(
-        "group inline-flex items-center gap-2.5 py-1.5 text-bark transition-colors hover:text-forest",
+        "block font-normal leading-[28px] text-bark transition-colors hover:text-forest",
         small ? "text-[15px]" : "text-[16px]",
       )}
     >
-      <ArrowRight className="size-3.5 shrink-0 text-amber transition-transform duration-200 group-hover:translate-x-1" aria-hidden />
       {label}
     </a>
   );
@@ -116,6 +115,8 @@ export function SiteHeader(_props: { overlay?: boolean }) {
   const isActive = (m?: string) => !!m && pathname.startsWith(m);
   const activeItem = menu.find((m) => m.label === mega);
   const activeMega = activeItem?.mega;
+  const sharedCategories = menu.filter((item) => item.mega && item.label !== "Over ons");
+  const panelCategories = activeItem?.label === "Over ons" ? [activeItem] : sharedCategories;
 
   return (
     <header
@@ -138,6 +139,11 @@ export function SiteHeader(_props: { overlay?: boolean }) {
               href={item.href}
               onMouseEnter={() => setMega(item.mega ? item.label : null)}
               onFocus={() => setMega(item.mega ? item.label : null)}
+              onClick={(event) => {
+                if (!item.mega) return;
+                event.preventDefault();
+                setMega(item.label);
+              }}
               aria-expanded={item.mega ? mega === item.label : undefined}
               className={cn(
                 "inline-flex items-center gap-1 whitespace-nowrap py-2 text-[13px] font-semibold tracking-[0.1em] text-bark uppercase transition-colors duration-200 hover:text-amber",
@@ -179,7 +185,7 @@ export function SiteHeader(_props: { overlay?: boolean }) {
 
       {activeMega && (
         <div className="absolute inset-x-0 top-full hidden border-b border-forest/15 bg-cream shadow-lg shadow-bark/5 animate-in fade-in slide-in-from-top-2 duration-200 min-[1400px]:block">
-          <div className="mx-auto grid grid-cols-[1fr_2fr_1fr] gap-12 border-t border-forest/15 container-site py-10">
+          <div className={cn("mx-auto grid gap-10 border-t border-forest/15 container-site py-7", activeItem?.label === "Over ons" ? "grid-cols-[260px_1fr]" : "grid-cols-[260px_repeat(3,minmax(0,1fr))]")}>
             <div>
               <img src={activeMega.image} alt={activeMega.alt} loading="lazy" className="h-36 w-full object-cover" />
               <a
@@ -189,35 +195,18 @@ export function SiteHeader(_props: { overlay?: boolean }) {
                 {activeMega.all} <ArrowRight className="size-4" aria-hidden />
               </a>
             </div>
-            <ul className="grid content-start grid-cols-2 gap-x-10 gap-y-1">
-              {activeMega.links.map((l) => (
-                <li key={l.label}>
-                  <MegaLink label={l.label} href={l.href} />
-                  {l.children && (
-                    <ul className="mb-1 ml-6 border-l border-forest/15 pl-4">
-                      {l.children.map((c) => (
-                        <li key={c.label}>
-                          <MegaLink label={c.label} href={c.href} small />
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
-            </ul>
-            <div className="self-start bg-forest-deep p-7">
-              <p className="text-xl text-primary-foreground">Direct advies nodig?</p>
-              <p className="mt-2 text-[15px] text-primary-foreground/80">Bel ons, wij denken graag met u mee.</p>
-              <a
-                href="tel:0513529899"
-                className="mt-5 inline-flex items-center gap-3 bg-sage py-2 pl-5 pr-2 text-[13px] font-semibold tracking-[0.08em] text-forest uppercase transition-colors hover:bg-background"
-              >
-                Bel 0513 529 899
-                <span className="flex size-8 items-center justify-center rounded-full bg-amber text-primary-foreground">
-                  <Phone className="size-4" aria-hidden />
-                </span>
-              </a>
-            </div>
+            {panelCategories.map((category) => (
+              <div key={category.label}>
+                <a href={category.href} className={cn("mb-3 block text-base font-semibold text-forest hover:text-amber", category.label === mega && "text-amber")}>
+                  {category.label}
+                </a>
+                <ul>
+                  {category.mega?.links.flatMap((link) => [link, ...(link.children ?? [])]).map((link) => (
+                    <li key={link.label}><MegaLink label={link.label} href={link.href} /></li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       )}
