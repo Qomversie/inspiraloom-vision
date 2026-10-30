@@ -17,7 +17,7 @@ export function Stars({ className = "" }: { className?: string }) {
 
 export function Hero() {
   return (
-    <section id="top" className="relative isolate min-h-[80vh] overflow-hidden">
+    <section id="top" className="relative z-10 isolate min-h-[80vh]">
       <img
         src={hero}
         alt="Dronefoto van een monumentale Friese kerk in het open landschap"

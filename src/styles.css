@@ -81,6 +81,7 @@
   --border: oklch(0.9 0.012 120);
   --input: oklch(0.9 0.012 120);
   --ring: var(--forest);
+  --shadow-injection-seal: 0 3px 10px color-mix(in oklab, var(--forest-deep) 18%, transparent);
 }
 
 @layer base {
@@ -198,6 +199,10 @@
 .injection-seal-ring {
   transform-origin: 100px 100px;
   animation: injection-seal-turn 30s linear infinite;
+}
+
+@media (width >= 64rem) {
+  .injection-seal { box-shadow: var(--shadow-injection-seal); }
 }
 
 @media (prefers-reduced-motion: reduce) {

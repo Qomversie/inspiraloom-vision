@@ -7,9 +7,9 @@ export function InjectionSeal() {
     <a
       href="/bestrijdingsmethoden/injecteren/"
       aria-label="Hoekstra Injectie"
-      className="mt-6 block size-[120px] shrink-0 -rotate-[8deg] rounded-full text-forest transition-colors hover:text-forest-deep focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cream lg:absolute lg:right-[4%] lg:top-[52%] lg:mt-0 lg:size-[184px] xl:size-[200px]"
+      className="injection-seal mt-6 block size-[110px] shrink-0 rounded-full text-forest opacity-95 transition-colors hover:text-forest-deep focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cream lg:absolute lg:-bottom-[75px] lg:right-10 lg:z-20 lg:mt-0 lg:size-[150px]"
     >
-      <svg viewBox="0 0 200 200" className="size-full font-sans" aria-hidden="true">
+      <svg viewBox="0 0 200 200" className="size-full -rotate-[8deg] font-sans" aria-hidden="true">
         <defs>
           <path id={circleId} d="M 100,20 A 80,80 0 1,1 100,180 A 80,80 0 1,1 100,20" />
         </defs>
@@ -18,18 +18,13 @@ export function InjectionSeal() {
         <g className="injection-seal-ring">
           <text fill="currentColor" fontSize="11.5" fontWeight="600" textLength="498" lengthAdjust="spacing">
             <textPath href={`#${circleId}`}>
-              EIGEN GEPATENTEERDE METHODE ★ STANDAARD IN URL 5001 ★
+              EIGEN GEPATENTEERDE METHODE <tspan className="fill-amber">★</tspan> STANDAARD IN URL 5001 <tspan className="fill-amber">★</tspan>
             </textPath>
           </text>
         </g>
-        <circle cx="100" cy="100" r="65" fill="none" stroke="currentColor" strokeWidth="1" />
-        <g className="fill-amber" fontSize="15" fontWeight="700" textAnchor="middle">
-          <text x="100" y="68">★ ★ ★</text>
-          <text x="100" y="148">★ ★ ★</text>
-        </g>
         <g transform="rotate(5 100 100)">
-          <path d="M 12,79 H 188 L 179,100 188,121 H 12 L 21,100 Z" className="fill-amber" />
-          <text x="100" y="106" textAnchor="middle" className="fill-cream" fontSize="15.5" fontWeight="700">HOEKSTRA INJECTIE</text>
+          <path d="M 31,85 H 169 L 163,100 169,115 H 31 L 37,100 Z" className="fill-forest" />
+          <text x="100" y="105" textAnchor="middle" className="fill-cream" fontSize="12.5" fontWeight="700">HOEKSTRA INJECTIE</text>
         </g>
       </svg>
     </a>

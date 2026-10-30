@@ -13,6 +13,9 @@
 
 # Homepage injectiezegel
 
+- [ ] Menu compacter met actieve kolom en huidige-paginamarkering controleren.
+- [ ] Rustiger kleiner zegel op desktopovergang en binnen de hero op tablet/mobiel controleren.
+
 - [x] Gedeeld compact uitklapmenu met drie categorieën en kleiner Over ons-paneel gecontroleerd, inclusief hover, klik en mobiel menu.
 - [x] Steviger zegel met amber lint gecontroleerd; grootte, plaatsing, rotatie van 30s en minder-beweginginstelling behouden.
 
