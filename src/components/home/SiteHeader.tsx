@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, ChevronDown, Menu, Phone, X } from "lucide-react";
+import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/logo-mark.png.asset.json";
@@ -13,7 +13,7 @@ type Item = {
   label: string;
   href: string;
   match?: string;
-  mega?: { image: string; alt: string; all: string; links: SubLink[] };
+  mega?: { image: string; alt: string; links: SubLink[] };
 };
 
 // Pagina's die nog niet bestaan wijzen voorlopig naar de passende sectie op de homepage.
@@ -24,7 +24,6 @@ const menu: Item[] = [
     mega: {
       image: houtworm,
       alt: "Houtwormgaatjes in een oude balk",
-      all: "Alles over houtaantasters",
       links: [
         { label: "Boktor bestrijden", href: "/#diensten" },
         { label: "Bonte knaagkever", href: "/#diensten" },
@@ -40,7 +39,6 @@ const menu: Item[] = [
     mega: {
       image: huiszwam,
       alt: "Zwamgroei op een vloerbalk",
-      all: "Alles over schimmels & zwammen",
       links: [
         { label: "Huiszwam", href: "/schimmels-zwammen/huiszwam" },
         { label: "Kelderzwam", href: "/#diensten" },
@@ -56,7 +54,6 @@ const menu: Item[] = [
     mega: {
       image: injectie,
       alt: "Vakman injecteert een oude eiken balk",
-      all: "Alles over bestrijdingsmethoden",
       links: [
         { label: "Hoekstra Injectie", href: "/#methode" },
         { label: "Heteluchtbehandeling", href: "/#diensten" },
@@ -73,7 +70,6 @@ const menu: Item[] = [
     mega: {
       image: portret,
       alt: "Jaap en Jurjen Hoekstra",
-      all: "Alles over ons",
       links: [
         {
           label: "Expertise",
@@ -120,6 +116,7 @@ export function SiteHeader(_props: { overlay?: boolean }) {
   const isActive = (m?: string) => !!m && pathname.startsWith(m);
   const activeItem = menu.find((m) => m.label === mega);
   const activeMega = activeItem?.mega;
+  const activeLinkCount = activeMega?.links.reduce((count, link) => count + 1 + (link.children?.length ?? 0), 0) ?? 0;
 
   return (
     <header
@@ -191,18 +188,26 @@ export function SiteHeader(_props: { overlay?: boolean }) {
           <div className="mx-auto grid max-w-[1360px] grid-cols-[260px_1fr] gap-12 container-site py-6">
             <div>
               <img src={activeMega.image} alt={activeMega.alt} loading="lazy" className="h-32 w-60 object-cover" />
-              <a
-                href={activeItem?.href}
-                className="mt-3 inline-flex items-center gap-1 whitespace-nowrap text-[13px] font-semibold text-forest hover:text-amber"
-              >
-                {activeMega.all} <ArrowRight className="size-4" aria-hidden />
-              </a>
             </div>
-            <ul className="grid max-w-[640px] grid-flow-col grid-rows-[repeat(3,28px)] content-start self-start gap-x-12">
-              {activeMega.links.flatMap((link) => [link, ...(link.children ?? [])]).map((link) => (
-                <li key={link.label}><MegaLink label={link.label} href={link.href} /></li>
-              ))}
-            </ul>
+            <div className="max-w-[640px] self-start">
+              <h2 className="mb-3 text-[18px] font-bold leading-[28px] text-forest">
+                <a href={activeItem?.href} className="transition-colors hover:text-forest-deep">{activeItem?.label}</a>
+              </h2>
+              <ul className={cn("gap-x-12", activeLinkCount > 8 && "columns-2")}>
+                {activeMega.links.map((link) => (
+                  <li key={link.label} className="break-inside-avoid">
+                    <MegaLink label={link.label} href={link.href} />
+                    {link.children && (
+                      <ul className="pl-4">
+                        {link.children.map((child) => (
+                          <li key={child.label}><MegaLink label={child.label} href={child.href} small /></li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       )}
@@ -233,12 +238,19 @@ export function SiteHeader(_props: { overlay?: boolean }) {
                       <ul className="pb-4 pl-1">
                         <li>
                           <a href={item.href} onClick={() => setOpen(false)} className="block py-1.5 text-[15px] font-semibold text-forest">
-                            {item.mega.all}
+                            {item.label}
                           </a>
                         </li>
-                        {item.mega.links.flatMap((l) => [l, ...(l.children ?? [])]).map((l) => (
+                        {item.mega.links.map((l) => (
                           <li key={l.label} onClick={() => setOpen(false)}>
                             <MegaLink label={l.label} href={l.href} small />
+                            {l.children && (
+                              <ul className="pl-4">
+                                {l.children.map((child) => (
+                                  <li key={child.label}><MegaLink label={child.label} href={child.href} small /></li>
+                                ))}
+                              </ul>
+                            )}
                           </li>
                         ))}
                       </ul>

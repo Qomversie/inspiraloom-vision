@@ -23,6 +23,14 @@ export function InjectionSeal() {
           </text>
         </g>
         <g transform="rotate(5 100 100)">
+          <g className="fill-amber" fontSize="12" textAnchor="middle">
+            <text x="77" y="65">★</text>
+            <text x="100" y="60">★</text>
+            <text x="123" y="65">★</text>
+            <text x="77" y="145">★</text>
+            <text x="100" y="150">★</text>
+            <text x="123" y="145">★</text>
+          </g>
           <path d="M -2,78 H 202 L 194,100 202,122 H -2 L 6,100 Z" className="fill-amber" />
           <text x="100" y="106" textAnchor="middle" className="fill-cream" fontSize="18" fontWeight="700">HOEKSTRA INJECTIE</text>
         </g>
