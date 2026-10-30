@@ -1,20 +1,16 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown, ChevronRight, Menu, Phone, X } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-mark.png.asset.json";
-import houtworm from "@/assets/houtworm.jpg";
-import huiszwam from "@/assets/huiszwam.jpg";
-import injectie from "@/assets/injectie.jpg";
-import portret from "@/assets/portret.jpg";
 
 type SubLink = { label: string; href: string; children?: { label: string; href: string }[] };
 type Item = {
   label: string;
   href: string;
   match?: string;
-  mega?: { image: string; alt: string; links: SubLink[] };
+  mega?: { links: SubLink[] };
 };
 
 // Pagina's die nog niet bestaan wijzen voorlopig naar de passende sectie op de homepage.
@@ -23,8 +19,6 @@ const menu: Item[] = [
     label: "Houtaantasters",
     href: "/#diensten",
     mega: {
-      image: houtworm,
-      alt: "Houtwormgaatjes in een oude balk",
       links: [
         { label: "Boktor bestrijden", href: "/#diensten" },
         { label: "Bonte knaagkever", href: "/#diensten" },
@@ -38,8 +32,6 @@ const menu: Item[] = [
     href: "/#diensten",
     match: "/schimmels-zwammen",
     mega: {
-      image: huiszwam,
-      alt: "Zwamgroei op een vloerbalk",
       links: [
         { label: "Huiszwam", href: "/schimmels-zwammen/huiszwam" },
         { label: "Kelderzwam", href: "/#diensten" },
@@ -53,8 +45,6 @@ const menu: Item[] = [
     label: "Bestrijdingsmethoden",
     href: "/#methode",
     mega: {
-      image: injectie,
-      alt: "Vakman injecteert een oude eiken balk",
       links: [
         { label: "Hoekstra Injectie", href: "/#methode" },
         { label: "Heteluchtbehandeling", href: "/#diensten" },
@@ -69,8 +59,6 @@ const menu: Item[] = [
     href: "/over-ons",
     match: "/over-ons",
     mega: {
-      image: portret,
-      alt: "Jaap en Jurjen Hoekstra",
       links: [
         {
           label: "Expertise",
@@ -97,7 +85,7 @@ function MegaLink({ label, href, children }: { label: string; href: string; chil
       href={href}
       aria-current={current ? "page" : undefined}
       className={cn(
-        "flex min-h-12 items-center justify-between gap-3 border-b border-forest/15 text-[16px] font-semibold leading-6 text-forest transition-colors hover:text-amber focus-visible:text-amber",
+        "flex min-h-11 items-center justify-between gap-3 border-b border-forest/15 text-[16px] font-semibold leading-6 text-bark transition-colors hover:text-amber focus-visible:text-amber",
         current && "text-amber",
       )}
     >
@@ -114,6 +102,8 @@ export function SiteHeader(_props: { overlay?: boolean }) {
   const [expanded, setExpanded] = useState<string | null>(null);
   const [subMenu, setSubMenu] = useState<string | null>(null);
   const [mobileSubMenu, setMobileSubMenu] = useState<string | null>(null);
+  const categoryLinks = useRef(new Map<string, HTMLAnchorElement>());
+  const [panelLeft, setPanelLeft] = useState(0);
   const pathname = useRouterState({ select: (st) => st.location.pathname });
   const isActive = (m?: string) => !!m && pathname.startsWith(m);
   const activeItem = menu.find((m) => m.label === mega);
@@ -121,8 +111,16 @@ export function SiteHeader(_props: { overlay?: boolean }) {
   const activeChildren = activeMega?.links.find((link) => link.label === subMenu)?.children;
   const showCategory = (label: string | null) => {
     if (mega !== label) setSubMenu(null);
+    if (label) setPanelLeft(categoryLinks.current.get(label)?.getBoundingClientRect().left ?? 0);
     setMega(label);
   };
+  useEffect(() => {
+    const alignPanel = () => {
+      if (mega) setPanelLeft(categoryLinks.current.get(mega)?.getBoundingClientRect().left ?? 0);
+    };
+    window.addEventListener("resize", alignPanel);
+    return () => window.removeEventListener("resize", alignPanel);
+  }, [mega]);
 
   return (
     <header
@@ -142,6 +140,7 @@ export function SiteHeader(_props: { overlay?: boolean }) {
           {menu.map((item) => (
             <a
               key={item.label}
+              ref={(element) => { if (element) categoryLinks.current.set(item.label, element); else categoryLinks.current.delete(item.label); }}
               href={item.href}
               onMouseEnter={() => showCategory(item.mega ? item.label : null)}
               onFocus={() => showCategory(item.mega ? item.label : null)}
@@ -191,12 +190,12 @@ export function SiteHeader(_props: { overlay?: boolean }) {
 
       {activeMega && (
         <div className="absolute inset-x-0 top-full hidden border-t border-b border-forest/15 bg-cream shadow-lg shadow-bark/5 animate-in fade-in slide-in-from-top-2 duration-200 min-[1400px]:block">
-          <div className="mx-auto grid max-w-[1360px] grid-cols-[260px_1fr] gap-12 container-site py-6">
-            <div>
-              <img src={activeMega.image} alt={activeMega.alt} loading="lazy" className="h-32 w-60 object-cover" />
-            </div>
-            <div className="flex items-start gap-12 self-start">
-              <ul className="w-[260px] shrink-0">
+          <div className="py-6 pr-10" style={{ paddingLeft: panelLeft }}>
+            <h2 className="mb-3 text-[18px] font-bold leading-7 text-forest">
+              <a href={activeItem?.href} className="transition-colors hover:text-amber">{activeItem?.label}</a>
+            </h2>
+            <div className="flex max-w-[584px] items-start gap-6">
+              <ul className="w-[280px] shrink-0">
                 {activeMega.links.map((link) => (
                   <li key={link.label} onMouseEnter={() => setSubMenu(link.children ? link.label : null)} onFocus={() => setSubMenu(link.children ? link.label : null)}>
                     <MegaLink label={link.label} href={link.href}>
@@ -206,7 +205,7 @@ export function SiteHeader(_props: { overlay?: boolean }) {
                 ))}
               </ul>
               {activeChildren && (
-                <ul className="w-[260px] shrink-0">
+                <ul className="min-w-0 max-w-[280px] flex-1">
                   {activeChildren.map((child) => (
                     <li key={child.label}><MegaLink label={child.label} href={child.href} /></li>
                   ))}
@@ -224,12 +223,12 @@ export function SiteHeader(_props: { overlay?: boolean }) {
               <div key={item.label} className="border-b border-forest/15">
                 {item.mega ? (
                   <>
-                    <button
+                    <Button variant="ghost"
                       type="button"
                       onClick={() => { setExpanded((v) => (v === item.label ? null : item.label)); setMobileSubMenu(null); }}
                       aria-expanded={expanded === item.label}
                       className={cn(
-                        "flex w-full items-center justify-between py-4 text-left text-[14px] font-semibold tracking-[0.1em] text-bark uppercase",
+                        "flex h-11 w-full items-center justify-between rounded-none px-0 text-left text-[16px] font-semibold text-bark hover:bg-transparent hover:text-amber",
                         isActive(item.match) && "text-amber",
                       )}
                     >
@@ -238,13 +237,13 @@ export function SiteHeader(_props: { overlay?: boolean }) {
                         className={cn("size-4 transition-transform duration-200", expanded === item.label && "rotate-180")}
                         aria-hidden
                       />
-                    </button>
+                    </Button>
                     {expanded === item.label && (
                       <ul className="pb-4">
                         {item.mega.links.map((l) => (
                           <li key={l.label}>
                             {l.children ? (
-                              <Button variant="ghost" onClick={() => setMobileSubMenu((v) => v === l.label ? null : l.label)} aria-expanded={mobileSubMenu === l.label} className="h-12 w-full justify-between rounded-none border-b border-forest/15 px-0 text-[16px] font-semibold text-forest hover:bg-transparent hover:text-amber">
+                              <Button variant="ghost" onClick={() => setMobileSubMenu((v) => v === l.label ? null : l.label)} aria-expanded={mobileSubMenu === l.label} className="h-11 w-full justify-between rounded-none border-b border-forest/15 px-0 text-[16px] font-semibold text-bark hover:bg-transparent hover:text-amber">
                                 {l.label}<ChevronRight className={cn(mobileSubMenu === l.label && "rotate-90")} aria-hidden />
                               </Button>
                             ) : <div onClick={() => setOpen(false)}><MegaLink label={l.label} href={l.href} /></div>}
@@ -265,7 +264,7 @@ export function SiteHeader(_props: { overlay?: boolean }) {
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className={cn(
-                      "block py-4 text-[14px] font-semibold tracking-[0.1em] text-bark uppercase",
+                      "flex min-h-11 items-center text-[16px] font-semibold text-bark hover:text-amber",
                       isActive(item.match) && "text-amber",
                     )}
                   >
