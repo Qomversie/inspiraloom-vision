@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Home, Mail, Phone } from "lucide-react";
 import hero from "@/assets/hero-kerk.jpg";
 import { ArrowButton } from "./ArrowButton";
@@ -58,15 +59,36 @@ export function Hero() {
           <Stars className="text-xl" />
           Beoordeeld op Google
         </a>
-        <ul className="mt-10 grid max-w-3xl grid-cols-2 gap-px border-t border-white/25 pt-6 sm:flex sm:flex-wrap sm:items-center sm:gap-x-8 sm:gap-y-3" aria-label="Keurmerken">
-          {["NVPB", "KPMB IPM Houtbescherming", "VCA", "K+K"].map((k, i) => (
-            <li key={k} className="flex items-center gap-3 py-1 text-[13px] font-semibold tracking-[0.1em] text-white/85 uppercase">
-              {i > 0 && <span className="hidden size-1 rounded-full bg-amber sm:block" aria-hidden />}
-              {k}
-            </li>
+        <ul className="mt-10 flex flex-wrap gap-3" aria-label="Keurmerken">
+          {[
+            { src: "/logos/nvpb.png", alt: "NVPB" },
+            { src: "/logos/kpmb.png", alt: "KPMB IPM Houtbescherming" },
+            { src: "/logos/vca.png", alt: "VCA" },
+            { src: "/logos/kk.png", alt: "K+K" },
+          ].map((l) => (
+            <LogoTile key={l.src} {...l} />
           ))}
         </ul>
       </div>
     </section>
+  );
+}
+
+// Wit logovlakje; toont de naam als plaatshouder zolang het logobestand ontbreekt.
+function LogoTile({ src, alt }: { src: string; alt: string }) {
+  const ref = useRef<HTMLImageElement>(null);
+  const [failed, setFailed] = useState(false);
+  useEffect(() => {
+    const img = ref.current;
+    if (img && img.complete && img.naturalWidth === 0) setFailed(true);
+  }, []);
+  return (
+    <li className="flex h-14 w-[90px] items-center justify-center bg-background p-2">
+      {failed ? (
+        <span className="text-center text-[10px] font-semibold leading-tight text-forest/70">{alt}</span>
+      ) : (
+        <img ref={ref} src={src} alt={alt} onError={() => setFailed(true)} className="max-h-full max-w-full object-contain" />
+      )}
+    </li>
   );
 }
