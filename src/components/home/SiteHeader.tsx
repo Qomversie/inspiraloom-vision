@@ -198,7 +198,7 @@ export function SiteHeader(_props: { overlay?: boolean }) {
                 {activeMega.all} <ArrowRight className="size-4" aria-hidden />
               </a>
             </div>
-            <ul className="grid max-w-[640px] grid-flow-col grid-rows-3 content-start gap-x-12">
+            <ul className="grid max-w-[640px] grid-flow-col grid-rows-[repeat(3,28px)] content-start self-start gap-x-12">
               {activeMega.links.flatMap((link) => [link, ...(link.children ?? [])]).map((link) => (
                 <li key={link.label}><MegaLink label={link.label} href={link.href} /></li>
               ))}
