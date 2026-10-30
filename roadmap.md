@@ -13,6 +13,8 @@
 
 # Homepage injectiezegel
 
+- [x] Volle-breedtemenu per categorie en groter amber zegellint gecontroleerd; huidige-paginamarkering en bewegingsvoorkeur behouden.
+
 - [x] Menu compacter met actieve kolom en huidige-paginamarkering gecontroleerd, ook op Huiszwam.
 - [x] Rustiger kleiner zegel gecontroleerd op desktop (1600/1142) exact half over de overgang en op tablet/mobiel (768/390) binnen de hero.
 
